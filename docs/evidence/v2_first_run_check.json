@@ -1,0 +1,57 @@
+{
+  "status": "success",
+  "startedAt": "2026-10-07T13:55:33.1765651+09:00",
+  "projectRoot": ".",
+  "checkRoot": ".tooling/v2-first-run-check/run-20261007-135532",
+  "method": "Exact corrected run_app.ps1 dependency prefix, stopping before launch/build; Windows PowerShell subprocess.",
+  "launcherSha256": "03617D2A0AF3D5D36884968676A6AEE449FC00021199993C626DC3AE9A6A50B7",
+  "initialManifestExists": false,
+  "initialPackageConfigExists": false,
+  "powershellParse": [
+    {
+      "path": "scripts/install_windows_build_tools.ps1",
+      "errors": []
+    },
+    {
+      "path": "scripts/package_submission.ps1",
+      "errors": []
+    },
+    {
+      "path": "scripts/prepare_windows_plugins.ps1",
+      "errors": []
+    },
+    {
+      "path": "scripts/run_app.ps1",
+      "errors": []
+    },
+    {
+      "path": "scripts/update_readme.ps1",
+      "errors": []
+    }
+  ],
+  "originalFailureEvidence": "docs/evidence/v2_first_run_initial_failure.json",
+  "finishedAt": "2026-10-07T13:55:47.2624913+09:00",
+  "durationSeconds": 12.175,
+  "exitCode": 0,
+  "symlinkFailureObserved": true,
+  "dependencyResolutionAttempts": 2,
+  "firstPubExitOneObserved": true,
+  "preferenceRestored": true,
+  "completedMarkerObserved": true,
+  "junctions": [
+    {
+      "plugin": "path_provider_windows",
+      "linkType": "Junction",
+      "targetExists": true
+    },
+    {
+      "plugin": "shared_preferences_windows",
+      "linkType": "Junction",
+      "targetExists": true
+    }
+  ],
+  "finalManifestExists": true,
+  "finalPackageConfigExists": true,
+  "buildDirectoryCreated": false,
+  "launcherMatchesCurrentSource": true
+}

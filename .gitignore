@@ -1,0 +1,27 @@
+# Flutter-generated files and downloaded dependencies.
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+coverage/
+**/ephemeral/
+
+# Local toolchain and document preview files are not submission sources.
+.tooling/
+tmp/
+output/pdf/previews/
+submission/
+*.log
+.idea/
+.vscode/
+*.iml
+__pycache__/
+*.pyc
+android/local.properties
+
+
+# Local build output.
+output/
+android/.gradle/
+android/.kotlin/

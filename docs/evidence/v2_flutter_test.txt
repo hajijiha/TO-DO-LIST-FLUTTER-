@@ -1,0 +1,58 @@
+00:00 +0: loading ./test/day_reflection_test.dart
+00:00 +0: ./test/day_reflection_test.dart: reflection trims edges and round-trips without losing line breaks
+00:00 +1: ./test/place_stats_test.dart: category and place whitespace normalize and catalog stays immutable
+00:00 +2: ./test/day_reflection_test.dart: note-only days remain outside score history and collections are immutable
+00:00 +3: ./test/place_stats_test.dart: success divides by all tasks and includes zero as completed
+00:00 +4: ./test/place_stats_test.dart: reference and actual today exclude future tasks but keep empty places
+00:00 +5: ./test/place_stats_test.dart: catalog persists after deletion and after JSON reload
+00:00 +6: ./test/place_stats_test.dart: old v2 migrates category catalog and reflections without data loss
+00:00 +7: ./test/place_stats_test.dart: present but malformed new fields are rejected rather than reset
+00:00 +8: ./test/planner_models_test.dart: calendar normalizes keys and rejects invalid dates
+00:00 +9: ./test/planner_models_test.dart: zero rating, clearScore and JSON round-trip are explicit
+00:00 +10: ./test/planner_models_test.dart: state and statistics expose immutable collections and snapshots
+00:00 +11: ./test/planner_models_test.dart: quantity and time goals penalize an isolated tiny perfect task
+00:00 +12: ./test/planner_models_test.dart: zero-score reopen or delete cannot inflate the daily score
+00:00 +13: ./test/planner_models_test.dart: removing a positive rating lowers score without lowering the plan
+00:00 +14: ./test/planner_models_test.dart: full perfect workload reaches ten and next target caps at ten
+00:00 +15: ./test/planner_models_test.dart: history is newest-first, includes zeros, excludes future and caps fourteen
+00:00 +16: ./test/planner_models_test.dart: stored state round-trips and rejects missing plans or duplicate IDs
+00:00 +17: ./test/todo_provider_test.dart: deleting unrated work keeps grown count and time denominators
+00:00 +18: ./test/todo_provider_test.dart: new target uses past daily average and stays a snapshot
+00:00 +19: ./test/todo_provider_test.dart: add trims input, normalizes dates and persists distinct IDs
+00:00 +20: ./test/todo_provider_test.dart: blank titles and invalid numeric values leave state unchanged
+00:00 +21: ./test/todo_provider_test.dart: ID deletion retains zero-score history after every task is deleted
+00:00 +22: ./test/todo_repository_test.dart: fresh storage uses defaults; seed and saves round-trip as JSON
+00:00 +23: ./test/todo_repository_test.dart: fresh storage uses defaults; seed and saves round-trip as JSON
+00:00 +24: ./test/todo_repository_test.dart: fresh storage uses defaults; seed and saves round-trip as JSON
+00:00 +25: ./test/todo_repository_test.dart: fresh storage uses defaults; seed and saves round-trip as JSON
+00:00 +26: ./test/todo_provider_test.dart: saves serialize and data changes only after storage succeeds
+00:00 +27: ./test/todo_provider_test.dart: saves serialize and data changes only after storage succeeds
+00:00 +28: ./test/todo_provider_test.dart: save failure preserves state and does not poison later operations
+00:00 +29: ./test/todo_provider_test.dart: reload retains ratings, goals, history and deleted ID sequence
+00:00 +30: ./test/todo_provider_test.dart: corrupted storage stays AsyncError and is never overwritten
+00:00 +31: ./test/todo_provider_test.dart: user categories and places persist across edits deletes and reload
+00:00 +32: ./test/todo_provider_test.dart: blank place keeps category but never enters autocomplete catalog
+00:00 +33: ./test/todo_provider_test.dart: reflection saves by date reloads and clears without creating day plans
+00:00 +34: ./test/todo_provider_test.dart: reflection save failure preserves earlier fields and permits retry
+00:01 +35: ./test/todo_provider_test.dart: category and reflection updates share one serial save queue
+00:01 +36: ./test/todo_screen_test.dart: button saves title, place, time and clears the composer
+00:04 +37: ./test/todo_screen_test.dart: Enter submits with default place and time
+00:05 +38: ./test/todo_screen_test.dart: invalid title or time stays in the composer
+00:06 +39: ./test/todo_screen_test.dart: duplicate titles are deleted by the selected id
+00:07 +40: ./test/todo_screen_test.dart: zero is a completed rating, can be edited, then reopened
+00:09 +41: ./test/todo_screen_test.dart: month navigation, date selection and today filter the list
+00:10 +42: ./test/todo_screen_test.dart: edit validates dates and moves title, place and time together
+00:11 +43: ./test/todo_screen_test.dart: new goals apply to new record dates and retain old baselines
+00:12 +44: ./test/todo_screen_test.dart: summary and explanation use activity weighted daily scores
+00:13 +45: ./test/todo_screen_test.dart: year zero is rejected and opening the date picker stays safe
+00:14 +46: ./test/todo_screen_test.dart: calendar navigation stops at supported year boundaries
+00:14 +47: ./test/todo_screen_test.dart: loading and failed restore offer retry without clearing data
+00:15 +48: ./test/todo_screen_test.dart: failed saves retain state, input and the rating dialog
+00:16 +49: ./test/todo_screen_test.dart: narrow layout, long content and rating dialog fit a keyboard
+00:18 +50: ./test/todo_screen_test.dart: category suggestions and place autocomplete use entered data
+00:20 +51: ./test/todo_screen_test.dart: custom categories and places survive edit, deletion and reload
+00:22 +52: ./test/todo_screen_test.dart: place analytics show sample size, zero ratings and category filter
+00:23 +53: ./test/todo_screen_test.dart: feedback saves and reopens without tasks or changing averages
+00:24 +54: ./test/todo_screen_test.dart: clearing feedback removes only the note and preserves daily scores
+00:25 +55: ./test/todo_screen_test.dart: failed feedback save leaves all entered text in the open dialog
+00:26 +56: All tests passed!

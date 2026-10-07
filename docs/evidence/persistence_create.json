@@ -1,0 +1,23 @@
+{
+  "phase": "create",
+  "status": "passed",
+  "checkedAtUtc": "2026-10-07T04:39:04.407992Z",
+  "repository": "SharedPreferencesTodoRepository with a separate verification key",
+  "nativePlatform": "windows",
+  "countText": "1개",
+  "dailyScoreText": "3.8",
+  "qualityAverageText": "완료 평점 평균  9.0",
+  "titleText": "재시작 저장 검증",
+  "locationText": "도서관",
+  "minutesText": "45분",
+  "categoryText": "공부",
+  "placeRateText": "관측 성공률  100%",
+  "placeSampleText": "8점 이상 완료 1개 / 전체 1개",
+  "reflectionVerifiedFromVisibleText": true,
+  "storedTask": {
+    "title": "재시작 저장 검증",
+    "location": "도서관",
+    "estimatedMinutes": 45,
+    "score": 9
+  }
+}

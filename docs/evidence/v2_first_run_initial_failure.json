@@ -1,0 +1,39 @@
+{
+  "status": "failed",
+  "startedAt": "2026-10-07T13:52:55.8828401+09:00",
+  "projectRoot": ".",
+  "checkRoot": ".tooling/v2-first-run-check/run-20261007-135255",
+  "method": "Exact run_app.ps1 dependency prefix, stopping before launch/build; Windows PowerShell subprocess.",
+  "launcherSha256": "7BCD886819617675595647BEA7495E25204FFBB39F67A5A76C06738A4C565016",
+  "initialManifestExists": false,
+  "initialPackageConfigExists": false,
+  "powershellParse": [
+    {
+      "path": "scripts/install_windows_build_tools.ps1",
+      "errors": []
+    },
+    {
+      "path": "scripts/package_submission.ps1",
+      "errors": []
+    },
+    {
+      "path": "scripts/prepare_windows_plugins.ps1",
+      "errors": []
+    },
+    {
+      "path": "scripts/run_app.ps1",
+      "errors": []
+    },
+    {
+      "path": "scripts/update_readme.ps1",
+      "errors": []
+    }
+  ],
+  "finishedAt": "2026-10-07T13:53:29.1884562+09:00",
+  "durationSeconds": 7.669,
+  "exitCode": 1,
+  "symlinkFailureObserved": true,
+  "completedMarkerObserved": false,
+  "failureType": "Windows PowerShell NativeCommandError before recovery condition",
+  "observedResolutionOutputLines": 0
+}

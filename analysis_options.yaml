@@ -1,0 +1,11 @@
+analyzer:
+  exclude:
+    - .tooling/**
+    - build/**
+    - android/**
+    - windows/**
+    - submission/**
+    - tmp/**
+    - output/**
+include: package:flutter_lints/flutter.yaml
+

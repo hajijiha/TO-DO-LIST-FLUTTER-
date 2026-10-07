@@ -1,0 +1,570 @@
+{
+  "startedAtUtc": "2026-10-07T05:08:37.047426Z",
+  "status": "success",
+  "readOnly": true,
+  "vmServiceHost": "127.0.0.1",
+  "vmServicePort": 49318,
+  "methods": [
+    "getVMTimelineFlags",
+    "getVMTimeline"
+  ],
+  "recorderName": "Ring",
+  "availableStreams": [
+    "API",
+    "Compiler",
+    "CompilerVerbose",
+    "Dart",
+    "Debugger",
+    "Embedder",
+    "GC",
+    "Isolate",
+    "Microtask",
+    "VM"
+  ],
+  "recordedStreams": [
+    "Dart",
+    "Embedder",
+    "GC"
+  ],
+  "timelineTimeOriginMicros": 154894661332,
+  "timelineTimeExtentMicros": 13642156,
+  "totalEvents": 32398,
+  "categoryCounts": {
+    "(none)": 20,
+    "Embedder": 20994,
+    "Dart": 9986,
+    "GC": 1398
+  },
+  "todoEventCounts": {
+    "todo.add": 12,
+    "todo.delete": 20
+  },
+  "todoBeginOrCompleteEventCounts": {
+    "todo.add": 6,
+    "todo.delete": 10
+  },
+  "todoEvents": [
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154895247603,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154895247631,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154896096269,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154896096300,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154896958245,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154896958270,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154897796823,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154897796853,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154898678352,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154898678379,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154899567608,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154899567632,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154902611166,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154902611191,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154903124609,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154903124633,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154903638902,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154903638927,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154904146517,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154904146550,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154904642407,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154904642429,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154905159333,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154905159357,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154905674167,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154905674194,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154906157560,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154906157583,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154906671066,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154906671089,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 154907163827,
+      "pid": 7856,
+      "tid": 39288
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 154907163849,
+      "pid": 7856,
+      "tid": 39288
+    }
+  ],
+  "completeFrameIntervalsConsidered": 381,
+  "frameEventPhaseCounts": {
+    "b": 381,
+    "e": 381
+  },
+  "todoBeginFrameLocations": [
+    {
+      "name": "todo.add",
+      "timestampMicros": 154895247603,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 154896096269,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 154896958245,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 154897796823,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 154898678352,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 154899567608,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154902611166,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154903124609,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154903638902,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154904146517,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154904642407,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154905159333,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154905674167,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154906157560,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154906671066,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 154907163827,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    }
+  ],
+  "mostFrequentEventNames": [
+    {
+      "name": "DartIsolate::HandleMessage",
+      "count": 1563
+    },
+    {
+      "name": "PipelineItem",
+      "count": 1517
+    },
+    {
+      "name": "POST_FRAME",
+      "count": 762
+    },
+    {
+      "name": "UPDATING COMPOSITING BITS (root)",
+      "count": 762
+    },
+    {
+      "name": "Frame",
+      "count": 762
+    },
+    {
+      "name": "Animate",
+      "count": 762
+    },
+    {
+      "name": "LAYOUT (root)",
+      "count": 762
+    },
+    {
+      "name": "LAYOUT",
+      "count": 762
+    },
+    {
+      "name": "UPDATING COMPOSITING BITS",
+      "count": 762
+    },
+    {
+      "name": "PAINT (root)",
+      "count": 762
+    },
+    {
+      "name": "PAINT",
+      "count": 762
+    },
+    {
+      "name": "COMPOSITING",
+      "count": 762
+    },
+    {
+      "name": "Animator::Render",
+      "count": 762
+    },
+    {
+      "name": "FINALIZE TREE",
+      "count": 762
+    },
+    {
+      "name": "ReactorGLES::Operation",
+      "count": 667
+    },
+    {
+      "name": "impeller::ReactorGLES::FlushOps",
+      "count": 663
+    },
+    {
+      "name": "impeller::ReactorGLES::ReactOnce",
+      "count": 663
+    },
+    {
+      "name": "ReactorGLES::React",
+      "count": 663
+    },
+    {
+      "name": "impeller::ReactorGLES::ConsolidateHandles",
+      "count": 662
+    },
+    {
+      "name": "RenderPassGLES::EncodeCommandsInReactor",
+      "count": 611
+    },
+    {
+      "name": "FlutterCompositorPresentLayers",
+      "count": 608
+    },
+    {
+      "name": "SurfaceFrame::Submit",
+      "count": 608
+    },
+    {
+      "name": "SurfaceFrame::Encode",
+      "count": 608
+    },
+    {
+      "name": "SceneDisplayLag",
+      "count": 608
+    },
+    {
+      "name": "Rasterizer::DrawToSurfaces",
+      "count": 607
+    },
+    {
+      "name": "Rasterizer::DoDraw",
+      "count": 607
+    },
+    {
+      "name": "GPURasterizer::Draw",
+      "count": 607
+    },
+    {
+      "name": "LayerTree::Paint",
+      "count": 606
+    },
+    {
+      "name": "PipelineProduce",
+      "count": 606
+    },
+    {
+      "name": "EmbedderExternalView::Render",
+      "count": 606
+    },
+    {
+      "name": "virtual impeller::TypographerContextSkia::CreateGlyphAtlas",
+      "count": 606
+    },
+    {
+      "name": "CompositorContext::ScopedFrame::Raster",
+      "count": 606
+    },
+    {
+      "name": "LayerTree::Preroll",
+      "count": 606
+    },
+    {
+      "name": "VsyncFireCallback",
+      "count": 606
+    },
+    {
+      "name": "VsyncFlow",
+      "count": 606
+    },
+    {
+      "name": "VsyncProcessCallback",
+      "count": 606
+    },
+    {
+      "name": "Animator::BeginFrame",
+      "count": 606
+    },
+    {
+      "name": "Frame Request Pending",
+      "count": 605
+    },
+    {
+      "name": "AsyncWaitForVsync",
+      "count": 604
+    },
+    {
+      "name": "FlutterEngineOnVsync",
+      "count": 604
+    }
+  ],
+  "completedAtUtc": "2026-10-07T05:08:37.944187Z"
+}
