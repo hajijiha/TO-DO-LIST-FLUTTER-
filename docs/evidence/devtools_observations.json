@@ -1,0 +1,116 @@
+{
+  "version": "1.1.0+3",
+  "status": "verified",
+  "platform": "Windows native x64",
+  "flutter": "3.47.6 stable",
+  "dart": "3.13.5",
+  "devtools": "2.60.0",
+  "inspector": {
+    "mode": "debug",
+    "selectedWidget": "Column",
+    "implementationWidgetsShown": true,
+    "width": 648.0,
+    "height": 554.7,
+    "padding": 16,
+    "direction": "vertical",
+    "mainAxisAlignment": "start",
+    "crossAxisAlignment": "stretch"
+  },
+  "timeline": {
+    "mode": "profile",
+    "screen": "Performance > Timeline Events",
+    "search": "todo.add",
+    "searchResultCount": 20,
+    "selectedEvent": "todo.add",
+    "category": "Dart",
+    "durationMicros": 116
+  },
+  "memory": {
+    "mode": "profile",
+    "action": "GC then Refresh",
+    "todoInstances": 10,
+    "todoTileInstances": 10,
+    "allClassesRowDartHeapMB": 10.6,
+    "note": "Class table uses the default UI filter. Dart heap and RSS are different metrics."
+  },
+  "performance": {
+    "mode": "profile",
+    "frame": 390,
+    "uiMillis": 0.3,
+    "rasterMillis": 8.0,
+    "paintMillis": 0.1,
+    "diagnostic": "Raster Jank Detected"
+  },
+  "limits": [
+    "Driver extensions and verification warm-up frames were enabled during capture.",
+    "Displayed average FPS is not a normal-use benchmark.",
+    "A single frame is not an average; a short memory observation does not establish absence of leaks.",
+    "Later VM timeline reads can omit early events due to the ring buffer."
+  ],
+  "screenshots": [
+    {
+      "file": "docs/screenshots/01_list.png",
+      "width": 1118,
+      "height": 964,
+      "sha256": "f178652c0af8844363e9e61c9c7c67f5cbf24bc2d620dcbea51c142c04fc70ce",
+      "capturedAtUtc": "2026-10-08T14:32:00.318958+00:00"
+    },
+    {
+      "file": "docs/screenshots/02_add_input.png",
+      "width": 1118,
+      "height": 964,
+      "sha256": "dd109bb2b2582d0cba66a5733bd1b307d37079b14523731bd5701dc5face8a7e",
+      "capturedAtUtc": "2026-10-08T14:32:03.116884+00:00"
+    },
+    {
+      "file": "docs/screenshots/03_add_result.png",
+      "width": 1118,
+      "height": 964,
+      "sha256": "0dfca4037911a8cddcab6897e53a92df66daf5df8e645b98890503e2a8eca1d6",
+      "capturedAtUtc": "2026-10-08T14:32:05.900708+00:00"
+    },
+    {
+      "file": "docs/screenshots/04_delete_before.png",
+      "width": 1118,
+      "height": 964,
+      "sha256": "208ce5310bf5e33c65625ea3ed7957ff6b4453b5b5f6113b4abf573d637a5359",
+      "capturedAtUtc": "2026-10-08T14:32:08.586293+00:00"
+    },
+    {
+      "file": "docs/screenshots/05_delete_after.png",
+      "width": 1118,
+      "height": 964,
+      "sha256": "2c1ce2fe236a854c46cc7512b90c9d0d06d1d586a2ee498fe800be7e526899ee",
+      "capturedAtUtc": "2026-10-08T14:32:11.356761+00:00"
+    },
+    {
+      "file": "docs/screenshots/06_devtools_inspector.jpg",
+      "width": 1440,
+      "height": 900,
+      "sha256": "9a4a45e397c6e667f5aad2932f5a44a8bcbed99d74dfe5dd68a06dbb44206d03",
+      "capturedAtUtc": "2026-10-08T14:34:53.004623+00:00"
+    },
+    {
+      "file": "docs/screenshots/07_devtools_timeline.jpg",
+      "width": 1440,
+      "height": 900,
+      "sha256": "a982881b7c6fb94cd54bf72342da6d1c331c2735fce58fa082fce1f536752ba9",
+      "capturedAtUtc": "2026-10-08T14:54:11.828244+00:00"
+    },
+    {
+      "file": "docs/screenshots/08_devtools_memory.jpg",
+      "width": 1440,
+      "height": 900,
+      "sha256": "09406035da641d07a22014217fd5a270339fc7252cc504036bc2de28308a756a",
+      "capturedAtUtc": "2026-10-08T14:54:47.014803+00:00"
+    },
+    {
+      "file": "docs/screenshots/09_devtools_performance.jpg",
+      "width": 1440,
+      "height": 900,
+      "sha256": "b25680a3f7744a4bf9637592f4a41796be82a62ab6f4333e7f7efac2295639de",
+      "capturedAtUtc": "2026-10-08T14:54:28.825671+00:00"
+    }
+  ],
+  "recordedAtUtc": "2026-10-08T15:02:43.849686+00:00"
+}

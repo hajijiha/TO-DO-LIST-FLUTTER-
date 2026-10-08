@@ -8,7 +8,7 @@
 - 각 항목에 제목, 완료 체크박스, 삭제 버튼을 둔다.
 - 날짜·점수·장소·회고·통계·영구 저장은 포함하지 않는다.
 - 앱 시작은 빈 목록이다. 종료·재시작하면 기록은 초기화된다.
-- 전체 기능 버전은 별도 codex/full-planner 브랜치에 보관한다.
+- 전체 기능 버전은 GitHub의 advanced 브랜치에 보관한다.
 
 ## 입력과 목록
 
@@ -42,4 +42,4 @@ Todo는 불변 id/title/isCompleted 모델이다. NotifierProvider가 List<Todo>
 | DevTools | debug Inspector 및 native profile Timeline/Memory/Performance |
 | 제출 | 자체 코드, Readme.pdf, 기능5장·DevTools4장의 실제 증빙 |
 
-간단 버전 1.1.0+3의 정적 분석과 14개 테스트(상태 6개·화면 8개), Windows release 빌드를 2026-10-08 13:40:11 KST에 확인했다. 기능 캡처 5장에서 목록 3개→추가 후 4개→삭제 후 3개와 첫 항목 완료 표시를 확인했다. 근거는 docs/evidence/simple_clean_build.json과 simple_feature_capture.json에 기록했다. DevTools 캡처 4장, 이 버전의 PDF와 제출 ZIP은 미완료 항목이다.
+간단 버전 1.1.0+3의 정적 분석, 14개 테스트(상태 6개·화면 8개), 일반 Windows release 빌드와 실행을 확인했다. 기능 캡처 5장에서 목록 3개→추가 후 4개→삭제 후 3개와 첫 항목 완료 표시를 확인했다. 네이티브 debug Inspector 및 profile Timeline·Memory·Performance를 실제로 촬영해 총 9장으로 구성했다. 근거는 docs/evidence/simple_final_validation.json, simple_feature_capture.json, simple_release_smoke.json, devtools_observations.json에 기록했다.

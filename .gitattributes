@@ -1,0 +1,4 @@
+# Preserve PDF and screenshot bytes in Git on every platform.
+*.pdf binary
+*.png binary
+*.jpg binary

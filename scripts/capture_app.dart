@@ -45,7 +45,11 @@ Future<void> main(List<String> args) async {
   }
 
   Future<void> capture(String name, String action) async {
-    await driver.requestData('render-frame', timeout: timeout);
+    // Render through Material transitions before taking a stable screenshot.
+    for (var frame = 0; frame < 10; frame++) {
+      await Future<void>.delayed(const Duration(milliseconds: 50));
+      await driver.requestData('render-frame', timeout: timeout);
+    }
     final bytes = await driver.screenshot();
     await File('${folder.path}/$name').writeAsBytes(bytes);
     captures.add({

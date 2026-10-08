@@ -1,4 +1,4 @@
-# Today Todo — 간단한 할 일 앱
+# Today Todo - 간단한 할 일 앱
 
 Flutter와 Riverpod으로 만든 Windows 네이티브 To Do 앱입니다. **목록·추가·삭제·완료 체크**를 제공하며, 할 일은 메모리에 보관합니다. **앱을 종료하거나 재시작하면 목록이 초기화됩니다.**
 
@@ -45,7 +45,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\run_app.ps1 -Build
 
 ## 3. 개발 환경과 일반 명령
 
-확인한 도구 환경은 Flutter 3.47.6 stable, Dart 3.13.5, DevTools 2.60.0, Windows x64입니다. Riverpod의 실제 사용 버전은 `pubspec.lock`에서 확인합니다.
+확인한 환경은 Flutter 3.47.6 stable, Dart 3.13.5, flutter_riverpod 3.4.3, DevTools 2.60.0, Windows x64입니다. 패키지 버전은 `pubspec.lock`으로 고정합니다.
 
 Flutter SDK를 설치하고 `bin` 폴더를 PATH에 등록합니다. Windows 네이티브 빌드를 위해 Visual Studio 또는 Build Tools에 **Desktop development with C++** 작업과 Windows SDK를 설치합니다.
 
@@ -99,13 +99,37 @@ debug와 profile 실행은 하나씩 종료한 뒤 다음 명령을 실행합니
 
 ## 6. 네이티브 DevTools와 촬영
 
-Inspector는 debug 앱을 실행한 뒤 터미널의 DevTools 링크로 연결합니다. 위젯 트리에서 목록 항목이나 입력창을 선택하고 속성·부모 구조를 확인합니다.
+DevTools는 Flutter SDK에 포함되어 별도 설치가 필요하지 않습니다. 앱은 **Windows native 프로세스**로 실행하고 분석 도구 화면은 브라우저에서 엽니다. 연결 화면의 앱 종류와 실행 모드를 확인합니다.
+
+```powershell
+flutter run -d windows
+```
+
+Inspector는 debug 앱의 터미널에 출력된 DevTools 링크로 연결합니다. 위젯 트리를 펼쳐 속성·부모 구조를 확인합니다. 프레임워크 위젯도 보려면 `Show Implementation Widgets`를 켭니다. 캡처에서는 Column을 선택해 vertical 방향, start 정렬, stretch 교차 정렬과 padding 16을 확인했습니다.
+
+debug 실행을 `q`로 종료한 뒤 profile 앱을 실행하고 이번 실행의 DevTools 링크에 연결합니다.
+
+```powershell
+flutter run -d windows --profile
+```
 
 Timeline·Memory·Performance는 **Windows profile 앱**에서 확인합니다. 해당 실행의 DevTools에 연결하여 항목 추가·체크·삭제·스크롤을 수행합니다. DevTools 2.60.0의 **Performance → Timeline Events**에서 `todo.add/delete/toggle` 표식과 선택 구간을 확인하고, 프레임 상세에서 UI·raster 시간을 확인합니다. Memory에서는 그래프와 클래스 수를 관찰하며 필요하면 GC·Refresh 전후를 비교합니다.
 
-VM Service 주소는 실행마다 달라집니다. 한 프레임의 시간은 전체 평균 성능이 아니며, 짧은 메모리 관찰만으로 누수가 없다고 단정하지 않습니다. 실제 선택 이벤트·프레임·관찰 시각과 동작을 검증 기록에 남깁니다.
+실제 profile 실행에서 추가 20회·삭제 10회·완료 변경 1회 후 10개가 남았습니다. Timeline Events의 `Refresh timeline events`로 기록을 가져온 뒤 `todo.add`를 검색해 다음 결과를 선택했습니다. 검색 결과는 20건이고 선택 이벤트는 Category Dart, Duration **116us**였습니다.
 
-Windows 앱의 목록·추가·삭제 화면 5장이 포함됩니다. DevTools 화면 4장은 미촬영입니다.
+Performance의 프레임 390을 선택했을 때 **UI 0.3ms / Raster 8.0ms / Paint 0.1ms**, `Raster Jank Detected`가 표시됐습니다. Memory에서 GC와 Refresh 후 **Todo 10개 / TodoTile 10개**와 All Classes 행의 Dart Heap **10.6 MB**를 확인했습니다. 클래스 표는 화면의 기본 필터가 적용된 상태이고 그래프의 RSS와 Dart heap은 다른 지표입니다.
+
+촬영용 `test_driver`는 실제 main.dart를 호출하면서 FlutterDriver 검증 확장과 warm-up 프레임 호출을 포함합니다. 따라서 차트의 평균 FPS를 일반 사용의 평균 성능으로 주장하지 않습니다. 한 프레임 시간은 전체 평균이 아니며 메모리 값에는 검증 도구 비용도 포함됩니다. 짧은 GC 관찰만으로 누수가 없다고 단정하지 않습니다. 일반 관찰은 위의 기본 profile 명령으로 재현합니다.
+
+DevTools 서버가 따로 필요하면 다른 터미널에서 실행합니다.
+
+```powershell
+dart devtools --port 9100 --no-launch-browser
+```
+
+출력된 주소에 접속하여 현재 앱의 VM Service URL을 연결합니다. **VM 주소와 토큰은 실행마다 달라집니다.** 이전 실행의 주소를 재사용하지 않습니다. 참고: [DevTools CLI 실행](https://docs.flutter.dev/tools/devtools/cli), [Performance 사용](https://docs.flutter.dev/tools/devtools/performance).
+
+동일한 간단 버전 `1.1.0+3`의 기능 화면 5장과 DevTools 화면 4장을 촬영했습니다. Readme.pdf 부록에 9장 모두 포함했습니다.
 
 | 파일: docs/screenshots/ | 화면 |
 | --- | --- |
@@ -119,24 +143,29 @@ Windows 앱의 목록·추가·삭제 화면 5장이 포함됩니다. DevTools �
 | 08_devtools_memory.jpg | profile 메모리 그래프·클래스 |
 | 09_devtools_performance.jpg | profile 프레임 차트·UI/raster |
 
+![목록과 완료 표시](docs/screenshots/01_list.png)
+![DevTools Timeline](docs/screenshots/07_devtools_timeline.jpg)
+
 ## 7. 검증 상태
 
-간단 버전 `1.1.0+3`의 정적 분석에서 문제가 없었으며, 깨끗한 소스 복사본에서 **14개 테스트(상태 6개·화면 8개)**와 **Windows release 빌드**를 통과했습니다. 소스 60개의 SHA-256도 복사본과 일치했습니다. 실행한 debug 앱에서 목록·추가·삭제·완료 체크를 확인하고 **기능 화면 5장**을 촬영했습니다. 항목 수는 3개 → 4개 → 3개로 변경됐습니다.
+간단 버전 `1.1.0+3`의 정적 분석은 `No issues found!`였으며 새 소스 복사본에서 의존성 설치, **14개 테스트(상태 6개·화면 8개)**와 일반 `lib/main.dart`의 **Windows release 빌드**를 통과했습니다. OneDrive의 기존 테스트 캐시 삭제 오류가 있어 새 복사본에서 검증했습니다. 실제 앱 소스 해시를 기록해 동일 소스인지 확인했습니다.
 
-근거는 `docs/evidence/simple_clean_build.json`, `simple_clean_test.txt`, `simple_feature_capture.json`입니다. DevTools 캡처 4장, 이 버전의 Readme.pdf와 제출 ZIP은 미완료 항목입니다.
+debug 앱에서 목록·추가·삭제·완료 체크를 확인했으며 항목 수는 3 → 4 → 3으로 변경됐습니다. 일반 release 실행 파일에서도 키보드 입력·Enter 추가 0 → 1개, 종료 후 재실행 시 0개 초기화를 확인했습니다. Windows profile 앱을 DevTools에 연결해 Timeline·Memory·Performance를 검사했습니다.
+
+근거는 `docs/evidence/simple_final_validation.json`, `simple_final_test.txt`, `simple_feature_capture.json`, `simple_release_smoke.json`, `profile_workload.json`, `devtools_observations.json`입니다. VM 타임라인은 순환 버퍼이므로 이후의 읽기 결과에서는 일부 초기 이벤트가 빠질 수 있습니다.
 
 ## 8. 보관한 전체 버전과 전환
 
-`main`은 목록·추가·삭제·완료 체크를 제공하는 기본 버전입니다. `codex/simple-todo`에도 같은 버전이 있습니다.
+GitHub의 `main`과 `simple`은 목록·추가·삭제·완료 체크를 제공하는 간단 버전입니다.
 
-전체 기능 버전은 `codex/full-planner`의 커밋 `b11b5e9`에 보관합니다. 장소·점수·달력·회고·저장 기능이 있는 버전으로 다시 전환할 수 있습니다.
+전체 기능 버전은 `advanced`의 커밋 `b11b5e9`에 보관합니다. 장소·점수·달력·회고·저장 기능이 있는 버전으로 전환할 수 있습니다. 새 clone의 기본 브랜치에서 다음과 같이 선택합니다.
 
 ```powershell
 git status
 # 확장 기능 버전
-git switch codex/full-planner
+git switch advanced
 # 기본 버전
-git switch codex/simple-todo
+git switch simple
 ```
 
 원하는 브랜치 하나를 선택합니다. 편집한 내용은 commit하거나 stash한 뒤 전환합니다. 전환 후에는 해당 소스로 `scripts/run_app.ps1`을 실행해 다시 빌드합니다. 이미 생성된 실행 파일은 브랜치를 바꿔도 자동으로 바뀌지 않습니다.
@@ -148,6 +177,6 @@ powershell -ExecutionPolicy Bypass -File .\scripts\update_readme.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\package_submission.ps1
 ```
 
-PDF는 `output/pdf/Readme.pdf`에 생성됩니다. PATH에 Python이 없다면 update_readme.ps1의 `-PythonPath`로 실행 파일을 지정합니다. 직접 생성할 때에는 `python -m pip install reportlab Pillow` 후 `python scripts/build_readme_pdf.py`를 실행합니다.
+PDF는 `output/pdf/Readme.pdf`에 생성됩니다. 생성에는 Windows의 맑은 고딕, Python과 reportlab·Pillow가 필요합니다. PATH에 Python이 없다면 update_readme.ps1의 `-PythonPath`로 실행 파일을 지정합니다. 직접 생성할 때에는 `python -m pip install reportlab Pillow` 후 `python scripts/build_readme_pdf.py`를 실행합니다. GitHub 루트에도 완성된 `Readme.pdf`를 제공합니다.
 
-제출에는 자체 `lib/`, `test/`, `test_driver/`, `scripts/`, 문서·실제 캡처, `pubspec.yaml`·`pubspec.lock`·분석 설정·필수 플랫폼 소스와 `Readme.pdf`를 포함합니다. `.tooling/`, SDK·다운로드 의존성·`build/`·`.dart_tool/`·ephemeral·Git·개인 IDE 설정은 제외합니다. 제출 전 PDF의 한글·명령·표·스크린샷과 ZIP의 파일 구성을 확인합니다.
+제출 ZIP은 `submission/today_todo_날짜_시각.zip`에 생성되고 내부 최상위에 `Readme.pdf`가 있습니다. 자체 `lib/`, `test/`, `test_driver/`, `scripts/`, 문서·실제 캡처, `pubspec.yaml`·`pubspec.lock`·분석 설정·필수 플랫폼 소스를 포함합니다. `.tooling/`, SDK·다운로드 의존성·`build/`·`.dart_tool/`·ephemeral·Git·개인 IDE 설정은 제외합니다. Android 설정은 프로젝트 기본 골격이며 실제 빌드·실행 검증 대상은 Windows입니다. PDF의 한글·명령·표·스크린샷과 ZIP 구성을 검토했습니다. 과제 사이트 업로드는 별도로 진행해야 합니다.

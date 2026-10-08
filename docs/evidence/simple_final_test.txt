@@ -1,0 +1,16 @@
+00:00 +0: loading ./.tooling/simple-final-build/20261008_233937/test/todo_provider_test.dart
+00:00 +0: ./.tooling/simple-final-build/20261008_233937/test/todo_provider_test.dart: new containers start empty and do not share memory
+00:00 +1: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: empty list shows its count and guidance
+00:00 +2: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: empty list shows its count and guidance
+00:00 +3: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: empty list shows its count and guidance
+00:00 +4: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: empty list shows its count and guidance
+00:00 +5: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: empty list shows its count and guidance
+00:00 +6: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: empty list shows its count and guidance
+00:01 +7: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: button adds a trimmed title and clears and focuses input
+00:01 +8: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: Enter adds a todo
+00:01 +9: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: blank input is rejected and typing clears the error
+00:01 +10: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: duplicate titles delete only the selected id
+00:01 +11: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: completion toggles both ways and updates the title style
+00:02 +12: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: narrow screen fits a long title above a keyboard
+00:02 +13: ./.tooling/simple-final-build/20261008_233937/test/todo_screen_test.dart: scrolling reaches later todos and deletes the selected row
+00:02 +14: All tests passed!

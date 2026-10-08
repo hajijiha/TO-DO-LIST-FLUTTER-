@@ -6,31 +6,31 @@
     {
       "file": "docs/screenshots/01_list.png",
       "action": "3개 목록, 첫 항목 완료 체크",
-      "capturedAtUtc": "2026-10-08T04:41:40.882910Z",
-      "bytes": 17800
+      "capturedAtUtc": "2026-10-08T14:32:00.319957Z",
+      "bytes": 18108
     },
     {
       "file": "docs/screenshots/02_add_input.png",
       "action": "새 항목 제목 입력",
-      "capturedAtUtc": "2026-10-08T04:41:43.239418Z",
-      "bytes": 20540
+      "capturedAtUtc": "2026-10-08T14:32:03.116883Z",
+      "bytes": 20270
     },
     {
       "file": "docs/screenshots/03_add_result.png",
       "action": "새 항목 추가, 4개 목록",
-      "capturedAtUtc": "2026-10-08T04:41:45.498356Z",
-      "bytes": 20736
+      "capturedAtUtc": "2026-10-08T14:32:05.900708Z",
+      "bytes": 23212
     },
     {
       "file": "docs/screenshots/04_delete_before.png",
       "action": "운동하기 삭제 전",
-      "capturedAtUtc": "2026-10-08T04:41:47.661785Z",
-      "bytes": 20736
+      "capturedAtUtc": "2026-10-08T14:32:08.586293Z",
+      "bytes": 23190
     },
     {
       "file": "docs/screenshots/05_delete_after.png",
       "action": "운동하기 삭제 후, 3개 목록",
-      "capturedAtUtc": "2026-10-08T04:41:49.931804Z",
+      "capturedAtUtc": "2026-10-08T14:32:11.356761Z",
       "bytes": 19328
     }
   ],
@@ -39,5 +39,5 @@
     4,
     3
   ],
-  "completedAtUtc": "2026-10-08T04:41:49.938805Z"
+  "completedAtUtc": "2026-10-08T14:32:11.360763Z"
 }

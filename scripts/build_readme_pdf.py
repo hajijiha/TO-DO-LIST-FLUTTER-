@@ -163,18 +163,16 @@ def screenshot_flow():
         ('03_add_result.png', '추가 결과', 'README 작성 항목이 추가되어 전체 목록이 4개가 된 화면.'),
         ('04_delete_before.png', '삭제 전', '삭제 대상 "운동하기"가 포함된 4개 항목.'),
         ('05_delete_after.png', '삭제 결과', '운동하기가 삭제되고 다른 3개 항목이 남은 화면.'),
-        ('06_devtools_inspector.png', 'DevTools Inspector', 'debug 네이티브 앱의 위젯 트리와 속성 검사.'),
-        ('07_devtools_timeline.png', 'DevTools Timeline', 'Windows profile 앱의 실제 프레임 타임라인과 이벤트 상세 화면.'),
-        ('08_devtools_memory.png', 'DevTools Memory', 'Windows profile 앱의 실제 메모리 사용량과 객체 할당 관찰 화면.'),
-        ('09_devtools_performance.png', 'DevTools Performance', 'Windows profile 앱의 프레임 그래프와 선택 프레임 분석 화면.'),
+        ('06_devtools_inspector.jpg', 'DevTools Inspector', 'Windows debug 앱에서 Column을 선택해 트리와 레이아웃을 검사했다. 너비 648.0, 높이 554.7, padding 16.'),
+        ('07_devtools_timeline.jpg', 'DevTools Timeline', 'Windows profile 앱의 Performance > Timeline Events. todo.add 20건 검색 중 선택한 이벤트의 Category는 Dart, Duration은 116us다.'),
+        ('08_devtools_memory.jpg', 'DevTools Memory', '20개 추가 후 10개 삭제, 완료 체크 1회 수행. GC와 Refresh 후 Todo 10개, TodoTile 10개를 확인했다. 짧은 관찰로 메모리 누수 여부를 단정하지 않는다.'),
+        ('09_devtools_performance.jpg', 'DevTools Performance', '선택 프레임 390의 UI 0.3ms, Raster 8.0ms, Paint 0.1ms. Raster Jank Detected가 표시됐다. 촬영용 프레임 호출을 포함하므로 표시 FPS는 일반 사용 평균 성능으로 해석하지 않는다.'),
     ]
     result = []
     for filename, title, caption in captions:
         path = ROOT / 'docs' / 'screenshots' / filename
         if not path.exists():
-            path = path.with_suffix('.jpg')
-            if not path.exists():
-                continue
+            raise FileNotFoundError(f'Required screenshot is missing: {path}')
         with PILImage.open(path) as source_image:
             width, height = source_image.size
         page_size = A4 if height > width else landscape(A4)

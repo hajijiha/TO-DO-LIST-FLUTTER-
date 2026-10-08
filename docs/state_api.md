@@ -40,4 +40,4 @@ void toggleTodo(int id);
 
 ## 검증 범위
 
-빈 입력/trim·중복 제목/ID·선택 삭제/마지막 삭제·완료 취소·기존 목록 보존을 상태 및 화면 테스트로 확인했다. 간단 버전의 상태 6개·화면 8개, 총 14개 테스트와 정적 분석이 통과했다. Windows release 빌드도 완료했으며 결과는 `docs/evidence/simple_clean_build.json`에 있다.
+빈 입력/trim·중복 제목/ID·선택 삭제/마지막 삭제·완료 취소·기존 목록 보존을 상태 및 화면 테스트로 확인했다. 상태 6개·화면 8개, 총 14개 테스트와 정적 분석이 통과했다. Windows release 빌드 결과는 `docs/evidence/simple_final_validation.json`, 실제 종료·재실행 초기화 확인은 `simple_release_smoke.json`에 있다.

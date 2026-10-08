@@ -1,0 +1,267 @@
+{
+  "completedAtKST": "2026-10-08T23:41:02.8322368+09:00",
+  "testCount": 14,
+  "startedAtKST": "2026-10-08T23:39:38.4331782+09:00",
+  "releaseExecutable": ".tooling/simple-final-build/20261008_233937/build/windows/x64/runner/Release/today_todo.exe",
+  "buildRoot": ".tooling/simple-final-build/20261008_233937",
+  "status": "passed",
+  "version": "1.1.0+3",
+  "steps": {
+    "test": {
+      "command": "flutter test --no-pub --reporter expanded",
+      "exitCode": 0,
+      "status": "passed",
+      "elapsedSeconds": 17.69
+    },
+    "pub_get": {
+      "command": "flutter pub get",
+      "exitCode": 0,
+      "status": "passed",
+      "elapsedSeconds": 3.012
+    },
+    "release": {
+      "command": "flutter build windows --release --no-pub",
+      "exitCode": 0,
+      "status": "passed",
+      "elapsedSeconds": 63.602
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": ".metadata",
+      "sha256": "A98DA470A735D13D0FEE8930ACC755D077776E9A232200E14EBDB51783FEED2E"
+    },
+    {
+      "path": "analysis_options.yaml",
+      "sha256": "227C8D9E92F1A28077DDE84E0E4CD4DB6FC4752BCF01736C6238440644EF81B8"
+    },
+    {
+      "path": "android/.gitignore",
+      "sha256": "C9AF75DBC2C8AA867476A09426C80B178C4AEED8B9393AE48503EEDFA3273D71"
+    },
+    {
+      "path": "android/app/build.gradle.kts",
+      "sha256": "A856F1089406E0A637F59C1AF243ABBA4C8E92709058519D36D148E69A883C35"
+    },
+    {
+      "path": "android/app/src/debug/AndroidManifest.xml",
+      "sha256": "B01A4541A8144C15BC617BAB7EB267C99FA1476368FBBDA5A12CDBF4E316A34C"
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "sha256": "F2F3C29D70D1A5417AC6B05B46459B6E8D34F122E12096E87DBF981E3FFEB3AC"
+    },
+    {
+      "path": "android/app/src/main/kotlin/com/example/today_todo/MainActivity.kt",
+      "sha256": "037A9572A3BAE73726F92E20ECE5C040E88CAD1CABF82B5950912B3F94E2D0E9"
+    },
+    {
+      "path": "android/app/src/main/res/drawable-v21/launch_background.xml",
+      "sha256": "DCA312EC77DE83E43EF70A825C299B51451247286C29167D62F19165750B8793"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/launch_background.xml",
+      "sha256": "2DF60E2CFBEE873CE2858088CF003E6B93498F2F568476DA437610467EA1A9D7"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-hdpi/ic_launcher.png",
+      "sha256": "6A7C8F0D703E3682108F9662F813302236240D3F8F638BB391E32BFB96055FEF"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-mdpi/ic_launcher.png",
+      "sha256": "C7C0C0189145E4E32A401C61C9BDC615754B0264E7AFAE24E834BB81049EAF81"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png",
+      "sha256": "E14AA40904929BF313FDED22CF7E7FFCBF1D1AAC4263B5EF1BE8BFCE650397AA"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png",
+      "sha256": "4D470BF22D5C17D84EDC5F82516D1BA8A1C09559CD761CEFB792F86D9F52B540"
+    },
+    {
+      "path": "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png",
+      "sha256": "3C34E1F298D0C9EA3455D46DB6B7759C8211A49E9EC6E44B635FC5C87DFB4180"
+    },
+    {
+      "path": "android/app/src/main/res/values-night/styles.xml",
+      "sha256": "EA763597DC1A84C8034251CAEE98D7753E0FBF57340FFC94677427DE4B537516"
+    },
+    {
+      "path": "android/app/src/main/res/values/styles.xml",
+      "sha256": "CCA15A99B59380A548BF6A890F7CA5380EE509B1F9BBB2F5F9EC3589FA25C2F7"
+    },
+    {
+      "path": "android/app/src/profile/AndroidManifest.xml",
+      "sha256": "B01A4541A8144C15BC617BAB7EB267C99FA1476368FBBDA5A12CDBF4E316A34C"
+    },
+    {
+      "path": "android/build.gradle.kts",
+      "sha256": "218F400E3FFF31C9C986A2535DFB974560E1B4D33CC27B7C1FEE96A2B7E44454"
+    },
+    {
+      "path": "android/gradle.properties",
+      "sha256": "7714698DE712A7872E371F0DBAE626C255FC83AC1C15E52E7CD9FCAA241B5092"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "594A00250EF7A36609A01F3263BF5ED63963AFAF9CA9F82F2CD1DE0F6F056383"
+    },
+    {
+      "path": "android/settings.gradle.kts",
+      "sha256": "092BA880C8D4A07591AAFC082F45DEEDC9AFCF60C113A4BB3D13CBE1A1FCE9DE"
+    },
+    {
+      "path": "lib/main.dart",
+      "sha256": "2D9F9D580975360823E7B2601A196CC4E860610616C1E172BA415F05E1E6235D"
+    },
+    {
+      "path": "lib/models/todo.dart",
+      "sha256": "BA32AF7D294A3EEE5BC126215FB3BDD05BC85E6DF380596503C6C8768D9599DC"
+    },
+    {
+      "path": "lib/providers/todo_provider.dart",
+      "sha256": "7B4F1C7C5AF3D582A8F828AB6090C22EE634AF5C7673517551DEAEF3BA3908E9"
+    },
+    {
+      "path": "lib/screens/todo_screen.dart",
+      "sha256": "B5D00A11D18D8ADEFFEE6DDFAA16A73173F7A42EE7B6C3D6AD5C588ECCB4FD3B"
+    },
+    {
+      "path": "lib/widgets/todo_tile.dart",
+      "sha256": "CDC377077C9C61ACC58AB1843024C356630B7D7D47F2A5F068D013001809A7C0"
+    },
+    {
+      "path": "pubspec.lock",
+      "sha256": "7B575C8BF5C4A57D9FC225AC7B4EC53583FC9B71D5A87FD27A24EF1619374852"
+    },
+    {
+      "path": "pubspec.yaml",
+      "sha256": "7A30B71C17032B2E55EF5871AACD02581296DFB149C8F75A9C3F51E8B770F01E"
+    },
+    {
+      "path": "scripts/build_readme_pdf.py",
+      "sha256": "6F861E853B89FD626872DC7C22E7EF88E1DB023FC0B1A599D67FBB56F475A111"
+    },
+    {
+      "path": "scripts/capture_app.dart",
+      "sha256": "23729FCAB96D7C631479A725B471F56137CECB9A089503F58CEC9A24668F0ECE"
+    },
+    {
+      "path": "scripts/inspect_timeline.dart",
+      "sha256": "55F3A9B266677068CC956EB113581DC77788FCD2F5237810E80F287F4419D657"
+    },
+    {
+      "path": "scripts/package_submission.ps1",
+      "sha256": "EE14DAFF34CFC76230994F2C71F6AC09F746050261CF8E7AFD1ADC816DB1F1E1"
+    },
+    {
+      "path": "scripts/prepare_windows_plugins.ps1",
+      "sha256": "FEEFC3CC4BB2872C7759E109C3E9FF15BE2CB919B0AD7E68AF1EE2711338D8EF"
+    },
+    {
+      "path": "scripts/profile_workload.dart",
+      "sha256": "5D142A3A47CC9D8156C7CB76B5435FE5982C2A43368F214398DCAAFAB2CCCE53"
+    },
+    {
+      "path": "scripts/run_app.ps1",
+      "sha256": "03617D2A0AF3D5D36884968676A6AEE449FC00021199993C626DC3AE9A6A50B7"
+    },
+    {
+      "path": "scripts/update_readme.ps1",
+      "sha256": "66E9F180A8504613A87B498618EE859F0C8D0214D6104B731BCD08F37FE10914"
+    },
+    {
+      "path": "test/todo_provider_test.dart",
+      "sha256": "EE48BE1969B59F53B062788C188CA9F92B7F649CD990380C132548ABE66B8259"
+    },
+    {
+      "path": "test/todo_screen_test.dart",
+      "sha256": "F8D6D4E6ED856CAD4AE634F14D00D244576F8362849F7F64347B72BEAE3BBCE7"
+    },
+    {
+      "path": "test_driver/capture_app.dart",
+      "sha256": "852FABDBBEF9C87DF96AE86D56BEFDDD413388B79A676B7924D88AE09ECD42CC"
+    },
+    {
+      "path": "test_driver/frame_driver.dart",
+      "sha256": "FD9935905F199C280E9FB769701E9076957BD8E2865D5783F31EF6608DBC83ED"
+    },
+    {
+      "path": "test_driver/profile_app.dart",
+      "sha256": "852FABDBBEF9C87DF96AE86D56BEFDDD413388B79A676B7924D88AE09ECD42CC"
+    },
+    {
+      "path": "windows/.gitignore",
+      "sha256": "955E3110CB16494EE76E1CD5DF47E2C212309EB94A49A123FE87F718DE413CB8"
+    },
+    {
+      "path": "windows/CMakeLists.txt",
+      "sha256": "D6425608EBC51EDBA86DDF54FC3D4096B7C24EF165EDCFA4C95C22880F0E72E2"
+    },
+    {
+      "path": "windows/flutter/CMakeLists.txt",
+      "sha256": "BD05E3268B2F246BCBAFDB778165FE67A7BAFDBA04EB73599502563A67B8AE7E"
+    },
+    {
+      "path": "windows/flutter/generated_plugin_registrant.cc",
+      "sha256": "82E02567F2FAF5E732DC92A2FB0D01104F7BA8C48973F8CFD41A860B4FAC3F3B"
+    },
+    {
+      "path": "windows/flutter/generated_plugin_registrant.h",
+      "sha256": "DBC11635D7B1BA1887ADF40DF5B83D634E9C3AB0BEE34510C71528BB4D73602A"
+    },
+    {
+      "path": "windows/flutter/generated_plugins.cmake",
+      "sha256": "286346B0D5303DC6B41072F9582D4C52BCA35255B85B27B310F858E264DFDC56"
+    },
+    {
+      "path": "windows/runner/CMakeLists.txt",
+      "sha256": "D765FDD05F63AD099E585A2CCED0CBFF13EC3229B7DE68C8681B2107DB850089"
+    },
+    {
+      "path": "windows/runner/Runner.rc",
+      "sha256": "5A584913C5E1CAA4863EEFE59C878415D8508F97320CE0BBBC0487CB311E7EDF"
+    },
+    {
+      "path": "windows/runner/flutter_window.cpp",
+      "sha256": "D615EEDC06AE37321E59C2C00C7687D1887DCD97904EB7225FAFD8DCB5B83DA6"
+    },
+    {
+      "path": "windows/runner/flutter_window.h",
+      "sha256": "0252B804F5DA380C7709CBE1DAFF2B8D18DAF6C49D7E6DD43E5AF3C99C19F56C"
+    },
+    {
+      "path": "windows/runner/main.cpp",
+      "sha256": "2F6517C2CACDBF5870BDC1A47EE02B5BBC60E9409E49AD2B145FB67914331561"
+    },
+    {
+      "path": "windows/runner/resource.h",
+      "sha256": "D0E8BF7835468B4B6B1F8F0747F2E8F25C19841F2DF2AC60AAA584DDAE3AA7C6"
+    },
+    {
+      "path": "windows/runner/resources/app_icon.ico",
+      "sha256": "C098D3FC85CACFF98B8E69811B48E9F0D852FCEE278132D794411D978869CBF8"
+    },
+    {
+      "path": "windows/runner/runner.exe.manifest",
+      "sha256": "639A56233FCD8CBCB8BBEFCD93E4680EC2664F32D9ACFB3D2EC1D8726A96E090"
+    },
+    {
+      "path": "windows/runner/utils.cpp",
+      "sha256": "A128B67B9F3C2579E2ECEF5B0DDE2C33F222A097CDFE5DA2A3067C73D1485B39"
+    },
+    {
+      "path": "windows/runner/utils.h",
+      "sha256": "832E246B6758253F89016FB0374B30791242E97AD950D27FC678B3D9FEACFDC4"
+    },
+    {
+      "path": "windows/runner/win32_window.cpp",
+      "sha256": "4E4F4DCF8E86EA6E097562CB3476039E693449BD8045367538AFEE579C017511"
+    },
+    {
+      "path": "windows/runner/win32_window.h",
+      "sha256": "D154CF89BA85F820631A9B5BEDACBE64FC5815E428FE6BC5DA579CE649F69841"
+    }
+  ]
+}

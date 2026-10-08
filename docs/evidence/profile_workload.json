@@ -1,0 +1,12 @@
+{
+  "version": "1.1.0+3",
+  "status": "success",
+  "method": "FlutterDriver UI actions on native Windows profile app",
+  "completedAdditions": 20,
+  "completedDeletions": 10,
+  "remainingCount": 10,
+  "completionToggles": 1,
+  "elapsedMilliseconds": 4493,
+  "frameControl": "Verification-only warm-up frames; not an average FPS benchmark",
+  "completedAtUtc": "2026-10-08T14:52:56.946055Z"
+}

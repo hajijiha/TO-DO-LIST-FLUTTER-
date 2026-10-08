@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "method": "Native Windows release app keyboard input and accessibility observation",
+  "entryPoint": "lib/main.dart",
+  "beforeCount": 0,
+  "afterEnterCount": 1,
+  "restartCount": 0,
+  "title": "test",
+  "checkedAtUtc": "2026-10-08T14:57:58.279Z"
+}

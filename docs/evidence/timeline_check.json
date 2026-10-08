@@ -1,0 +1,746 @@
+{
+  "startedAtUtc": "2026-10-08T14:53:37.350182Z",
+  "status": "success",
+  "readOnly": true,
+  "vmServiceHost": "127.0.0.1",
+  "vmServicePort": 52558,
+  "methods": [
+    "getVMTimelineFlags",
+    "getVMTimeline"
+  ],
+  "recorderName": "Ring",
+  "availableStreams": [
+    "API",
+    "Compiler",
+    "CompilerVerbose",
+    "Dart",
+    "Debugger",
+    "Embedder",
+    "GC",
+    "Isolate",
+    "Microtask",
+    "VM"
+  ],
+  "recordedStreams": [
+    "Dart",
+    "Embedder",
+    "GC"
+  ],
+  "timelineTimeOriginMicros": 276384619630,
+  "timelineTimeExtentMicros": 10705427,
+  "totalEvents": 32462,
+  "categoryCounts": {
+    "(none)": 23,
+    "Embedder": 18299,
+    "Dart": 13058,
+    "GC": 1082
+  },
+  "todoEventCounts": {
+    "todo.add": 28,
+    "todo.delete": 20
+  },
+  "todoBeginOrCompleteEventCounts": {
+    "todo.add": 14,
+    "todo.delete": 10
+  },
+  "todoEvents": [
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276384724304,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276384724322,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276384862531,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276384862544,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276384991647,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276384991847,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276385151140,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276385151167,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276385278997,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276385279015,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276385466370,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276385466394,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276385612468,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276385612482,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276385746316,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276385746334,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276385908363,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276385908379,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276386049139,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276386049151,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276386177333,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276386177352,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276386310235,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276386310251,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276386445742,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276386445754,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276386588488,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.add",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276386588502,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276386700674,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276386700689,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276386833548,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276386833564,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276386963943,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276386963959,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276387075824,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276387075843,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276387205620,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276387205639,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276387326003,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276387326022,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276387450842,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276387450864,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276387584635,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276387584653,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276387711151,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276387711175,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "B",
+      "ts": 276387840674,
+      "pid": 12652,
+      "tid": 40592
+    },
+    {
+      "name": "todo.delete",
+      "cat": "Dart",
+      "ph": "E",
+      "ts": 276387840693,
+      "pid": 12652,
+      "tid": 40592
+    }
+  ],
+  "completeFrameIntervalsConsidered": 312,
+  "frameEventPhaseCounts": {
+    "b": 312,
+    "e": 312
+  },
+  "todoBeginFrameLocations": [
+    {
+      "name": "todo.add",
+      "timestampMicros": 276384724304,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276384862531,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276384991647,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276385151140,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276385278997,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276385466370,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276385612468,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276385746316,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276385908363,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276386049139,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276386177333,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276386310235,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276386445742,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.add",
+      "timestampMicros": 276386588488,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276386700674,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276386833548,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276386963943,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276387075824,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276387205620,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276387326003,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276387450842,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276387584635,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276387711151,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    },
+    {
+      "name": "todo.delete",
+      "timestampMicros": 276387840674,
+      "matchingFrameIntervals": 0,
+      "outsideRecordedCompleteFrames": true
+    }
+  ],
+  "mostFrequentEventNames": [
+    {
+      "name": "PipelineItem",
+      "count": 1295
+    },
+    {
+      "name": "DartIsolate::HandleMessage",
+      "count": 1286
+    },
+    {
+      "name": "Semantics.updateChildren",
+      "count": 1248
+    },
+    {
+      "name": "Semantics.ensureGeometry",
+      "count": 1248
+    },
+    {
+      "name": "Semantics.ensureSemanticsNode",
+      "count": 1248
+    },
+    {
+      "name": "ReactorGLES::Operation",
+      "count": 697
+    },
+    {
+      "name": "Frame",
+      "count": 624
+    },
+    {
+      "name": "Animate",
+      "count": 624
+    },
+    {
+      "name": "LAYOUT (root)",
+      "count": 624
+    },
+    {
+      "name": "LAYOUT",
+      "count": 624
+    },
+    {
+      "name": "UPDATING COMPOSITING BITS (root)",
+      "count": 624
+    },
+    {
+      "name": "UPDATING COMPOSITING BITS",
+      "count": 624
+    },
+    {
+      "name": "PAINT (root)",
+      "count": 624
+    },
+    {
+      "name": "PAINT",
+      "count": 624
+    },
+    {
+      "name": "COMPOSITING",
+      "count": 624
+    },
+    {
+      "name": "Animator::Render",
+      "count": 624
+    },
+    {
+      "name": "SEMANTICS (root)",
+      "count": 624
+    },
+    {
+      "name": "SEMANTICS",
+      "count": 624
+    },
+    {
+      "name": "FINALIZE TREE",
+      "count": 624
+    },
+    {
+      "name": "POST_FRAME",
+      "count": 624
+    },
+    {
+      "name": "RenderPassGLES::EncodeCommandsInReactor",
+      "count": 607
+    },
+    {
+      "name": "impeller::ReactorGLES::FlushOps",
+      "count": 607
+    },
+    {
+      "name": "impeller::ReactorGLES::ReactOnce",
+      "count": 607
+    },
+    {
+      "name": "ReactorGLES::React",
+      "count": 607
+    },
+    {
+      "name": "impeller::ReactorGLES::ConsolidateHandles",
+      "count": 606
+    },
+    {
+      "name": "VsyncProcessCallback",
+      "count": 519
+    },
+    {
+      "name": "SurfaceFrame::Submit",
+      "count": 518
+    },
+    {
+      "name": "AsyncWaitForVsync",
+      "count": 518
+    },
+    {
+      "name": "VsyncFireCallback",
+      "count": 518
+    },
+    {
+      "name": "VsyncFlow",
+      "count": 518
+    },
+    {
+      "name": "Animator::BeginFrame",
+      "count": 518
+    },
+    {
+      "name": "FlutterCompositorPresentLayers",
+      "count": 518
+    },
+    {
+      "name": "SurfaceFrame::Encode",
+      "count": 518
+    },
+    {
+      "name": "FlutterEngineOnVsync",
+      "count": 518
+    },
+    {
+      "name": "PipelineProduce",
+      "count": 518
+    },
+    {
+      "name": "Frame Request Pending",
+      "count": 517
+    },
+    {
+      "name": "Rasterizer::DrawToSurfaces",
+      "count": 517
+    },
+    {
+      "name": "GPURasterizer::Draw",
+      "count": 517
+    },
+    {
+      "name": "Rasterizer::DoDraw",
+      "count": 517
+    },
+    {
+      "name": "CompositorContext::ScopedFrame::Raster",
+      "count": 516
+    }
+  ],
+  "completedAtUtc": "2026-10-08T14:53:38.137661Z"
+}
