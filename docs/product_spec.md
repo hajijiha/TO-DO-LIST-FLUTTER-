@@ -1,6 +1,6 @@
 # 간단한 To Do 앱 구현 기준
 
-이 버전은 과제의 목록·추가·삭제, Riverpod 및 네이티브 DevTools 요구에 집중한다. 추가 기능은 완료 체크와 취소뿐이다.
+목록·추가·삭제·완료 체크를 제공하는 단일 화면 앱이다. Riverpod으로 목록 상태를 관리하며 Windows 네이티브 환경에서 실행한다.
 
 ## 범위
 
@@ -42,4 +42,4 @@ Todo는 불변 id/title/isCompleted 모델이다. NotifierProvider가 List<Todo>
 | DevTools | debug Inspector 및 native profile Timeline/Memory/Performance |
 | 제출 | 자체 코드, Readme.pdf, 기능5장·DevTools4장의 실제 증빙 |
 
-간단 버전 1.1.0+3의 정적 분석과 14개 테스트(상태 6개·화면 8개), Windows release 빌드를 2026-10-08 13:40:11 KST에 확인했다. 새 기능 캡처 5장에서 목록 3개→추가 후 4개→삭제 후 3개와 첫 항목 완료 표시를 확인했다. 근거는 docs/evidence/simple_clean_build.json과 simple_feature_capture.json에 기록했다. DevTools 4장·새 PDF·최종 ZIP은 아직 완료하지 않았으며, 전체 버전의 결과를 이 버전의 근거로 사용하지 않는다.
+간단 버전 1.1.0+3의 정적 분석과 14개 테스트(상태 6개·화면 8개), Windows release 빌드를 2026-10-08 13:40:11 KST에 확인했다. 기능 캡처 5장에서 목록 3개→추가 후 4개→삭제 후 3개와 첫 항목 완료 표시를 확인했다. 근거는 docs/evidence/simple_clean_build.json과 simple_feature_capture.json에 기록했다. DevTools 캡처 4장, 이 버전의 PDF와 제출 ZIP은 미완료 항목이다.

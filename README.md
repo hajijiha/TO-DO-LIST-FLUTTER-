@@ -4,7 +4,9 @@ Flutter와 Riverpod으로 만든 Windows 네이티브 To Do 앱입니다. **목�
 
 ## 1. 실행하기
 
-**이 컴퓨터에서는 프로젝트 폴더의 `앱 실행.cmd`를 더블클릭합니다.** 준비된 간단 버전 실행 파일은 `output/windows-simple/Release/today_todo.exe`에 있습니다. 이 폴더에는 실행에 필요한 DLL과 `data`도 함께 들어 있습니다.
+Windows에서 소스를 빌드해 실행합니다. `앱 실행.cmd`는 로컬에 준비된
+`output/windows-simple/Release/today_todo.exe`를 실행하는 보조 스크립트입니다.
+실행 파일을 배포할 때는 같은 폴더의 DLL과 `data`도 함께 포함해야 합니다.
 
 GitHub에서 받은 소스 또는 제출 ZIP에는 빌드 결과가 포함되지 않으므로 Flutter와 Windows 빌드 도구를 준비한 뒤 프로젝트 폴더의 PowerShell에서 실행합니다.
 
@@ -43,9 +45,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\run_app.ps1 -Build
 
 ## 3. 개발 환경과 일반 명령
 
-확인한 도구 환경은 Flutter 3.47.6 stable, Dart 3.13.5, DevTools 2.60.0, Windows x64입니다. Riverpod의 실제 사용 버전은 `pubspec.lock`에서 확인합니다. 이 환경 정보와 간단 버전의 검사 결과는 구분합니다.
+확인한 도구 환경은 Flutter 3.47.6 stable, Dart 3.13.5, DevTools 2.60.0, Windows x64입니다. Riverpod의 실제 사용 버전은 `pubspec.lock`에서 확인합니다.
 
-다른 컴퓨터에서는 Flutter SDK를 설치하고 `bin` 폴더를 PATH에 등록합니다. Windows 네이티브 빌드를 위해 Visual Studio 또는 Build Tools에 **Desktop development with C++** 작업과 Windows SDK를 설치합니다. 이 작업공간에는 해당 도구가 준비되어 있습니다.
+Flutter SDK를 설치하고 `bin` 폴더를 PATH에 등록합니다. Windows 네이티브 빌드를 위해 Visual Studio 또는 Build Tools에 **Desktop development with C++** 작업과 Windows SDK를 설치합니다.
 
 PATH에 Flutter가 있는 일반 환경에서는 다음 명령을 사용합니다.
 
@@ -103,7 +105,7 @@ Timeline·Memory·Performance는 **Windows profile 앱**에서 확인합니다. 
 
 VM Service 주소는 실행마다 달라집니다. 한 프레임의 시간은 전체 평균 성능이 아니며, 짧은 메모리 관찰만으로 누수가 없다고 단정하지 않습니다. 실제 선택 이벤트·프레임·관찰 시각과 동작을 검증 기록에 남깁니다.
 
-다음은 간단 버전의 촬영 목록입니다. **기능 화면 5장은 실제 Windows 앱에서 촬영했습니다.** DevTools 4장은 아직 촬영 전이며 완료 증빙으로 표시하지 않습니다.
+Windows 앱의 목록·추가·삭제 화면 5장이 포함됩니다. DevTools 화면 4장은 미촬영입니다.
 
 | 파일: docs/screenshots/ | 화면 |
 | --- | --- |
@@ -121,21 +123,23 @@ VM Service 주소는 실행마다 달라집니다. 한 프레임의 시간은 �
 
 간단 버전 `1.1.0+3`의 정적 분석에서 문제가 없었으며, 깨끗한 소스 복사본에서 **14개 테스트(상태 6개·화면 8개)**와 **Windows release 빌드**를 통과했습니다. 소스 60개의 SHA-256도 복사본과 일치했습니다. 실행한 debug 앱에서 목록·추가·삭제·완료 체크를 확인하고 **기능 화면 5장**을 촬영했습니다. 항목 수는 3개 → 4개 → 3개로 변경됐습니다.
 
-근거는 `docs/evidence/simple_clean_build.json`, `simple_clean_test.txt`, `simple_feature_capture.json`입니다. **새 DevTools 4장, 최종 Readme.pdf와 제출 ZIP은 아직 준비 중입니다.** 기존 전체 버전의 테스트·캡처·PDF를 이 버전의 결과로 사용하지 않습니다.
+근거는 `docs/evidence/simple_clean_build.json`, `simple_clean_test.txt`, `simple_feature_capture.json`입니다. DevTools 캡처 4장, 이 버전의 Readme.pdf와 제출 ZIP은 미완료 항목입니다.
 
 ## 8. 보관한 전체 버전과 전환
 
-저장소는 https://github.com/hajijiha/TO-DO-LIST-FLUTTER- 입니다. 기본 `main`은 간단 버전을 사용하며 `codex/simple-todo`에도 같은 버전을 보관합니다. 기존 `main`의 이력을 유지한 채 이후 커밋으로 연결합니다.
+`main`은 목록·추가·삭제·완료 체크를 제공하는 기본 버전입니다. `codex/simple-todo`에도 같은 버전이 있습니다.
 
 전체 기능 버전은 `codex/full-planner`의 커밋 `b11b5e9`에 보관합니다. 장소·점수·달력·회고·저장 기능이 있는 버전으로 다시 전환할 수 있습니다.
 
 ```powershell
 git status
+# 확장 기능 버전
 git switch codex/full-planner
+# 기본 버전
 git switch codex/simple-todo
 ```
 
-필요한 브랜치로 한 번씩 전환하여 실행합니다. 편집한 내용은 commit하거나 stash한 뒤 전환합니다. 전환 후에는 해당 소스로 `scripts/run_app.ps1`을 실행해 다시 빌드합니다. 이미 생성된 실행 파일은 브랜치를 바꿔도 자동으로 바뀌지 않습니다.
+원하는 브랜치 하나를 선택합니다. 편집한 내용은 commit하거나 stash한 뒤 전환합니다. 전환 후에는 해당 소스로 `scripts/run_app.ps1`을 실행해 다시 빌드합니다. 이미 생성된 실행 파일은 브랜치를 바꿔도 자동으로 바뀌지 않습니다.
 
 ## 9. PDF와 제출 코드
 
@@ -146,4 +150,4 @@ powershell -ExecutionPolicy Bypass -File .\scripts\package_submission.ps1
 
 PDF는 `output/pdf/Readme.pdf`에 생성됩니다. PATH에 Python이 없다면 update_readme.ps1의 `-PythonPath`로 실행 파일을 지정합니다. 직접 생성할 때에는 `python -m pip install reportlab Pillow` 후 `python scripts/build_readme_pdf.py`를 실행합니다.
 
-제출에는 자체 `lib/`, `test/`, `test_driver/`, `scripts/`, 문서·실제 캡처, `pubspec.yaml`·`pubspec.lock`·분석 설정·필수 플랫폼 소스와 `Readme.pdf`를 포함합니다. `.tooling/`, SDK·다운로드 의존성·`build/`·`.dart_tool/`·ephemeral·Git·개인 IDE 설정은 제외합니다. 최종 PDF의 한글·명령·표·9장 이미지와 ZIP의 필수 파일·제외 항목을 확인한 뒤 과제 사이트에 제출합니다.
+제출에는 자체 `lib/`, `test/`, `test_driver/`, `scripts/`, 문서·실제 캡처, `pubspec.yaml`·`pubspec.lock`·분석 설정·필수 플랫폼 소스와 `Readme.pdf`를 포함합니다. `.tooling/`, SDK·다운로드 의존성·`build/`·`.dart_tool/`·ephemeral·Git·개인 IDE 설정은 제외합니다. 제출 전 PDF의 한글·명령·표·스크린샷과 ZIP의 파일 구성을 확인합니다.

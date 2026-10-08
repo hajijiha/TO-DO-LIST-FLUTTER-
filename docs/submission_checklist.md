@@ -2,7 +2,8 @@
 
 마감: **2026-10-11 일요일 23:59 KST**.
 
-체크는 간단 버전의 실제 근거가 확인된 경우에만 표시한다. 전체 기능 버전은 별도 브랜치에 보관했다. 간단 버전 1.1.0+3은 정적 분석·14개 테스트·Windows release 빌드와 기능 5장 촬영을 완료했다. DevTools 4장·새 PDF·최종 ZIP은 진행 단계다.
+대상 버전: `1.1.0+3`. 정적 분석, 테스트 14개, Windows release 빌드와 기능 화면 5장을 확인했다.
+DevTools 캡처 4장, PDF와 제출 ZIP은 미완료 항목이다.
 
 ## 범위와 문서
 
@@ -10,7 +11,7 @@
 - [x] 영구 저장이 없고 앱 재시작 시 초기화됨을 README에 명시했다.
 - [x] 전체 버전과 간단 버전의 브랜치 전환 방법을 안내했다.
 - [x] 실행·빌드·profile 명령, 자료구조·위젯·상태 변경 흐름을 작성했다.
-- [x] 담당 구현에서 확정한 Todo/copyWith·동기 provider API·TodoScreen/TodoTile 구조를 문서에 반영했다.
+- [x] Todo/copyWith, 동기 provider API, TodoScreen/TodoTile 구조를 문서화했다.
 - [ ] 기존 전체 버전의 코드·캡처·로그가 간단 버전 제출물에 섞이지 않는다.
 
 ## 기본·완료 기능
@@ -31,7 +32,7 @@
 - [x] 새 목록·객체로 state를 교체하고 기존 객체를 직접 수정하지 않는다.
 - [x] 화면 watch/read 연결과 TextEditingController/FocusNode.dispose를 확인했다.
 
-## 새 검증
+## 빌드 및 실행 검증
 
 - [ ] flutter pub get 성공.
 - [x] flutter analyze에서 No issues found를 확인했다.
@@ -74,9 +75,7 @@
 
 ## 실제 제출
 
-- [ ] 학생이 간단 버전 ZIP·Readme.pdf·스크린샷을 직접 확인했다.
+- [ ] 제출 ZIP·Readme.pdf·스크린샷의 내용을 확인했다.
 - [ ] 마감 전에 과제 사이트에 업로드하고 제출 완료 상태를 확인했다.
 
-기존 전체 버전의 테스트·18장 캡처·31페이지 PDF 결과를 현재 체크의 근거로 사용하지 않는다.
-
-새 검증 근거: docs/evidence/simple_clean_build.json, simple_feature_capture.json. 빌드 확인 시각은 2026-10-08 13:40:11 KST다.
+검증 근거: docs/evidence/simple_clean_build.json, simple_feature_capture.json. 빌드 확인 시각은 2026-10-08 13:40:11 KST다.
