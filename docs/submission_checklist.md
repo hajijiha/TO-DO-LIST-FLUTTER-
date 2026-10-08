@@ -63,7 +63,6 @@
 - [x] Inspector를 debug 네이티브 앱에서 촬영했다.
 - [x] Timeline/Memory/Performance를 profile 네이티브 앱에서 촬영했다.
 - [x] DevTools 실제 이벤트·프레임·시간·GC·클래스 수를 기록했다.
-- [x] Performance 수치는 특정 프레임의 관찰 결과임을 설명했다.
 - [x] 최종9장 원본의 내용·가독성·잘림을 시각 검토했다.
 
 ## PDF와 자체 코드 ZIP

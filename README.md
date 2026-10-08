@@ -201,16 +201,12 @@ Windows debug 앱에 연결한 화면입니다. Show Implementation Widgets를 �
 
 ![Inspector: 위젯 트리와 Column 속성](docs/screenshots/06_devtools_inspector.jpg)
 
-**관찰:** Column의 세로 배치, padding 16, 너비 648.0·높이 554.7과 자식 위젯 구조를 확인했습니다.
-
 <!-- page: landscape -->
 ### 6-2. Timeline - 실제 동작 이벤트 검사
 
 Windows profile 앱의 **Performance > Timeline Events**입니다. Refresh timeline events 후 todo.add를 검색해 선택했습니다.
 
 ![Timeline: todo.add 이벤트와 상세 정보](docs/screenshots/07_devtools_timeline.jpg)
-
-**관찰:** todo.add 검색 결과 3건, 선택 이벤트 Category Dart·Duration 318us. 추가·삭제·완료 처리에 Timeline.timeSync 표식을 넣었습니다.
 
 <!-- page: landscape -->
 ### 6-3. Memory - 메모리와 객체 수 검사
@@ -219,13 +215,9 @@ Windows profile 앱에서 추가 20회·삭제 10회·완료 변경 1회 후 GC�
 
 ![Memory: 메모리 그래프와 GC 후 객체 수](docs/screenshots/08_devtools_memory.jpg)
 
-**관찰:** 남은 항목 10개와 Todo 10개·TodoTile 10개를 확인했습니다. All Classes 행의 Dart Heap은 10.6 MB이며 클래스 표의 기본 필터가 적용된 값입니다.
-
 <!-- page: landscape -->
 ### 6-4. Performance - UI와 Raster 프레임 검사
 
 Windows profile 앱의 Flutter frames 차트에서 프레임 390을 선택한 화면입니다.
 
 ![Performance: 프레임 차트와 Frame Analysis](docs/screenshots/09_devtools_performance.jpg)
-
-**관찰:** UI 0.3ms·Raster 8.0ms·Paint 0.1ms, Raster Jank Detected 표시. 한 프레임의 결과이며 전체 평균 성능을 의미하지 않습니다.
