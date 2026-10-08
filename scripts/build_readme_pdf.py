@@ -14,7 +14,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
-    BaseDocTemplate, Frame, Image, KeepTogether, NextPageTemplate, PageBreak,
+    BaseDocTemplate, Flowable, Frame, Image, NextPageTemplate, PageBreak,
     PageTemplate, Paragraph, Spacer, Table, TableStyle,
 )
 
@@ -23,22 +23,23 @@ OUTPUT = ROOT / 'output' / 'pdf' / 'Readme.pdf'
 FONT = Path('C:/Windows/Fonts')
 pdfmetrics.registerFont(TTFont('Korean', str(FONT / 'malgun.ttf')))
 pdfmetrics.registerFont(TTFont('KoreanBold', str(FONT / 'malgunbd.ttf')))
+pdfmetrics.registerFont(TTFont('CodeMono', str(FONT / 'consola.ttf')))
 pdfmetrics.registerFontFamily('Korean', normal='Korean', bold='KoreanBold')
 TEAL = colors.HexColor('#174D4B')
 MUTED = colors.HexColor('#64736F')
 styles = getSampleStyleSheet()
-styles.add(ParagraphStyle('KRBody', fontName='Korean', fontSize=9.2, leading=15,
+styles.add(ParagraphStyle('KRBody', fontName='Korean', fontSize=9.5, leading=14.5,
                           textColor=colors.HexColor('#263D37'), spaceAfter=6,
                           wordWrap='CJK'))
 styles.add(ParagraphStyle('KRTitle', fontName='KoreanBold', fontSize=25, leading=34,
                           textColor=TEAL, spaceAfter=18, wordWrap='CJK'))
 styles.add(ParagraphStyle('KRH2', fontName='KoreanBold', fontSize=15, leading=22,
-                          textColor=TEAL, spaceBefore=14, spaceAfter=9,
+                          textColor=TEAL, spaceBefore=0, spaceAfter=10,
                           keepWithNext=True, wordWrap='CJK'))
 styles.add(ParagraphStyle('KRH3', fontName='KoreanBold', fontSize=11, leading=17,
-                          textColor=TEAL, spaceBefore=9, spaceAfter=5,
+                          textColor=TEAL, spaceBefore=6, spaceAfter=5,
                           keepWithNext=True, wordWrap='CJK'))
-styles.add(ParagraphStyle('KRCode', fontName='Korean', fontSize=8.0, leading=12,
+styles.add(ParagraphStyle('KRCode', fontName='CodeMono', fontSize=8.4, leading=12,
                           backColor=colors.HexColor('#EFF3F0'), borderPadding=8,
                           spaceBefore=3, spaceAfter=9, wordWrap='CJK'))
 styles.add(ParagraphStyle('KRCell', parent=styles['KRBody'], fontSize=8.0,
@@ -54,6 +55,95 @@ class CodeParagraph(Paragraph):
 
     def split(self, availWidth, availHeight):
         return []
+
+
+def code_line(text: str) -> str:
+    text = escape(text).replace(' ', '&nbsp;')
+    text = re.sub(r'([가-힣]+)', r'<font name="Korean">\1</font>', text)
+    return text
+
+
+class FlowDiagram(Flowable):
+    """Show the state update path and native app connection as small diagrams."""
+
+    def __init__(self, kind: str):
+        super().__init__()
+        self.nodes = {
+            'state': [
+                ('사용자 동작', '추가·삭제·완료'),
+                ('TodoNotifier', 'ref.read로 요청'),
+                ('새 List<Todo>', 'state에 대입'),
+                ('TodoScreen', 'ref.watch로 재구성'),
+            ],
+            'connection': [
+                ('Windows 앱', 'native 프로세스'),
+                ('Dart VM Service', '실행 데이터 연결'),
+                ('DevTools', '브라우저의 검사 화면'),
+            ],
+        }[kind]
+        self.height = 76
+
+    def wrap(self, availWidth, availHeight):
+        self.width = availWidth
+        return self.width, self.height
+
+    def draw(self):
+        canvas = self.canv
+        gap = 16
+        node_width = (self.width - gap * (len(self.nodes) - 1)) / len(self.nodes)
+        canvas.saveState()
+        for index, (title, detail) in enumerate(self.nodes):
+            x = index * (node_width + gap)
+            canvas.setFillColor(colors.HexColor('#EFF5F1'))
+            canvas.setStrokeColor(colors.HexColor('#B6CDC2'))
+            canvas.roundRect(x, 14, node_width, 50, 5, stroke=1, fill=1)
+            canvas.setFillColor(TEAL)
+            canvas.setFont('KoreanBold', 9.3)
+            canvas.drawCentredString(x + node_width / 2, 43, title)
+            canvas.setFillColor(MUTED)
+            canvas.setFont('Korean', 8)
+            canvas.drawCentredString(x + node_width / 2, 26, detail)
+            if index < len(self.nodes) - 1:
+                start = x + node_width + 2
+                end = x + node_width + gap - 2
+                canvas.setStrokeColor(TEAL)
+                canvas.line(start, 39, end, 39)
+                canvas.line(end - 4, 42, end, 39)
+                canvas.line(end - 4, 36, end, 39)
+        canvas.restoreState()
+
+
+def embedded_images(entries, layout):
+    page_size = A4 if layout == 'Portrait' else landscape(A4)
+    available = page_size[0] - 92
+    paired = len(entries) == 2
+    image_width = (available - 24) / 2 if paired else available
+    image_height = 335 if paired else (500 if layout == 'Portrait' else 355)
+    images, captions = [], []
+    for caption, relative_path in entries:
+        path = (ROOT / relative_path).resolve()
+        path.relative_to((ROOT / 'docs' / 'screenshots').resolve())
+        if not path.is_file():
+            raise FileNotFoundError(f'Required screenshot is missing: {path}')
+        with PILImage.open(path) as source_image:
+            width, height = source_image.size
+        scale = min(image_width / width, image_height / height)
+        images.append(Image(str(path), width=width * scale, height=height * scale,
+                            hAlign='CENTER'))
+        captions.append(Paragraph(inline(caption), styles['KRCaption']))
+    if paired:
+        table = Table([captions, images], colWidths=[available / 2] * 2,
+                      hAlign='CENTER')
+        table.setStyle(TableStyle([
+            ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+            ('ALIGN', (0, 1), (-1, 1), 'CENTER'),
+            ('LEFTPADDING', (0, 0), (-1, -1), 6),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+            ('TOPPADDING', (0, 0), (-1, -1), 0),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
+        ]))
+        return [table, Spacer(1, 8)]
+    return [images[0], Spacer(1, 6), captions[0]]
 
 
 def inline(text: str) -> str:
@@ -106,16 +196,24 @@ def markdown_flow(source):
     result = []
     lines = source.splitlines()
     index = 0
+    layout = 'Portrait'
     while index < len(lines):
         line = lines[index].strip()
         if not line:
             index += 1
             continue
-        if line.startswith('```'):
+        page = re.fullmatch(r'<!-- page: (portrait|landscape) -->', line)
+        diagram = re.fullmatch(r'<!-- diagram: (state|connection) -->', line)
+        if page:
+            layout = page[1].title()
+            result.extend([NextPageTemplate(layout), PageBreak()])
+        elif diagram:
+            result.append(FlowDiagram(diagram[1]))
+        elif line.startswith('```'):
             index += 1
             code = []
             while index < len(lines) and not lines[index].strip().startswith('```'):
-                code.append(escape(lines[index]).replace(' ', '&nbsp;'))
+                code.append(code_line(lines[index]))
                 index += 1
             result.append(CodeParagraph('<br/>'.join(code), styles['KRCode']))
         elif line.startswith('|'):
@@ -128,11 +226,17 @@ def markdown_flow(source):
             result.extend(table_flow(rows))
             continue
         elif line.startswith('!['):
-            # Images are collected as large, labeled appendix pages below.
-            match = re.match(r'!\[(.*?)\]\((.*?)\)', line)
-            if match:
-                result.append(Paragraph('실행 화면: ' + inline(match[1]) +
-                                        ' (뒤의 실제 캡처 부록 참조)', styles['KRCaption']))
+            entries = []
+            while index < len(lines) and lines[index].strip().startswith('!['):
+                match = re.fullmatch(r'!\[(.*?)\]\((.*?)\)', lines[index].strip())
+                if not match:
+                    raise ValueError(f'Invalid screenshot reference: {lines[index]}')
+                entries.append((match[1], match[2]))
+                index += 1
+            if not 1 <= len(entries) <= 2:
+                raise ValueError('Place one screenshot or a before/after pair together.')
+            result.extend(embedded_images(entries, layout))
+            continue
         elif line.startswith('# '):
             result.append(Paragraph(inline(line[2:]), styles['KRTitle']))
         elif line.startswith('## '):
@@ -156,38 +260,6 @@ def markdown_flow(source):
     return result
 
 
-def screenshot_flow():
-    captions = [
-        ('01_list.png', '리스트', 'Windows 네이티브 앱의 할 일 3개 목록. 강의 복습을 완료 체크하여 취소선과 체크 상태를 확인한다.'),
-        ('02_add_input.png', '추가 전 입력', '새 제목 "README 작성"을 입력한 화면.'),
-        ('03_add_result.png', '추가 결과', 'README 작성 항목이 추가되어 전체 목록이 4개가 된 화면.'),
-        ('04_delete_before.png', '삭제 전', '삭제 대상 "운동하기"가 포함된 4개 항목.'),
-        ('05_delete_after.png', '삭제 결과', '운동하기가 삭제되고 다른 3개 항목이 남은 화면.'),
-        ('06_devtools_inspector.jpg', 'DevTools Inspector', 'Windows debug 앱에서 Column을 선택해 트리와 레이아웃을 검사했다. 너비 648.0, 높이 554.7, padding 16.'),
-        ('07_devtools_timeline.jpg', 'DevTools Timeline', 'Windows profile 앱의 Performance > Timeline Events. todo.add 20건 검색 중 선택한 이벤트의 Category는 Dart, Duration은 116us다.'),
-        ('08_devtools_memory.jpg', 'DevTools Memory', '20개 추가 후 10개 삭제, 완료 체크 1회 수행. GC와 Refresh 후 Todo 10개, TodoTile 10개를 확인했다. 짧은 관찰로 메모리 누수 여부를 단정하지 않는다.'),
-        ('09_devtools_performance.jpg', 'DevTools Performance', '선택 프레임 390의 UI 0.3ms, Raster 8.0ms, Paint 0.1ms. Raster Jank Detected가 표시됐다. 촬영용 프레임 호출을 포함하므로 표시 FPS는 일반 사용 평균 성능으로 해석하지 않는다.'),
-    ]
-    result = []
-    for filename, title, caption in captions:
-        path = ROOT / 'docs' / 'screenshots' / filename
-        if not path.exists():
-            raise FileNotFoundError(f'Required screenshot is missing: {path}')
-        with PILImage.open(path) as source_image:
-            width, height = source_image.size
-        page_size = A4 if height > width else landscape(A4)
-        page_template = 'Portrait' if height > width else 'Landscape'
-        available_width = page_size[0] - 80
-        available_height = page_size[1] - 190
-        result.extend([NextPageTemplate(page_template), PageBreak(),
-                       Paragraph('실제 실행 캡처 | ' + title, styles['KRH2']),
-                       Paragraph(caption, styles['KRCaption'])])
-        scale = min(available_width / width, available_height / height)
-        result.append(Image(str(path), width=width * scale, height=height * scale,
-                            hAlign='CENTER'))
-    return result
-
-
 def main():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     document = BaseDocTemplate(str(OUTPUT), pagesize=A4, title='오늘 할 일 - Readme',
@@ -201,7 +273,9 @@ def main():
         PageTemplate(id='Landscape', frames=[landscape_frame], pagesize=wide, onPage=footer),
     ])
     source = (ROOT / 'README.md').read_text(encoding='utf-8-sig')
-    document.build(markdown_flow(source) + screenshot_flow())
+    if len(re.findall(r'^!\[', source, re.MULTILINE)) != 9:
+        raise ValueError('The assignment README must contain all nine screenshots.')
+    document.build(markdown_flow(source))
     print(OUTPUT)
 
 

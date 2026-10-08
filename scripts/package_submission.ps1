@@ -1,4 +1,4 @@
-param([string]$Destination = 'submission')
+﻿param([string]$Destination = 'submission')
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $destinationRoot = [IO.Path]::GetFullPath((Join-Path $projectRoot $Destination))

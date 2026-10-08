@@ -1,166 +1,277 @@
-# Today Todo - 간단한 할 일 앱
+# 오늘 할 일 - Flutter To Do 앱
 
-Flutter와 Riverpod으로 만든 Windows 네이티브 To Do 앱입니다. **목록·추가·삭제·완료 체크**를 제공하며, 할 일은 메모리에 보관합니다. **앱을 종료하거나 재시작하면 목록이 초기화됩니다.**
+목록·추가·삭제와 완료 체크를 제공하는 Windows 네이티브 앱입니다. 할 일 목록은 Riverpod으로 관리합니다.
 
-## 1. 실행하기
+## 1. 빌드 및 실행 방법
 
-Windows에서 소스를 빌드해 실행합니다. `앱 실행.cmd`는 로컬에 준비된
-`output/windows-simple/Release/today_todo.exe`를 실행하는 보조 스크립트입니다.
-실행 파일을 배포할 때는 같은 폴더의 DLL과 `data`도 함께 포함해야 합니다.
+### 준비 사항
 
-GitHub에서 받은 소스 또는 제출 ZIP에는 빌드 결과가 포함되지 않으므로 Flutter와 Windows 빌드 도구를 준비한 뒤 프로젝트 폴더의 PowerShell에서 실행합니다.
+Flutter SDK의 bin 폴더가 PATH에 등록된 Windows 컴퓨터가 필요합니다. Visual Studio 또는 Build Tools에 **Desktop development with C++**와 Windows SDK를 설치합니다. ZIP을 풀고 **pubspec.yaml이 있는 폴더에서 PowerShell**을 엽니다.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\run_app.ps1
-```
-
-debug 앱이 열립니다. 할 일을 입력하고 추가하거나 Enter를 누릅니다. 체크박스로 완료 상태를 바꾸고 휴지통 버튼으로 삭제합니다. 실행 터미널에서 `q`를 누르면 종료됩니다.
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\run_app.ps1 -Profile
-powershell -ExecutionPolicy Bypass -File .\scripts\run_app.ps1 -Build
-```
-
-`-Profile`은 DevTools 성능 관찰용 실행이고, `-Build`는 release 빌드입니다. 빌드 후 실행 파일은 다음 위치에 생깁니다.
-
-```powershell
-.\build\windows\x64\runner\Release\today_todo.exe
-```
-
-빌드를 마치면 `앱 실행.cmd`로 실행할 수 있습니다. 실행 파일을 다른 폴더에 옮길 때에는 DLL·data가 들어 있는 **Release 폴더 전체**를 복사합니다. 실행 스크립트는 프로젝트의 `.tooling/flutter` SDK 또는 PATH의 Flutter를 사용합니다. `-ExecutionPolicy Bypass`는 해당 PowerShell 프로세스에만 적용됩니다.
-
-## 2. 기능과 과제 범위
-
-| 요구사항 | 구현 |
-| --- | --- |
-| 기본 기능 20점 | 할 일 목록 표시, 제목 추가, 고유 ID로 삭제 |
-| Riverpod 보너스 10점 | 같은 앱의 목록과 완료 상태를 NotifierProvider로 관리 |
-| 네이티브 DevTools 보너스 10점 | Windows 앱의 Inspector·Timeline·Memory·Performance 관찰 |
-| 추가 기능 | 완료 체크 및 완료 취소 |
-| 제출물 | 자체 코드, 실행 명령·구조·보너스·스크린샷을 포함한 Readme.pdf |
-
-공백만 있는 제목은 추가하지 않습니다. 제목 앞뒤 공백을 정리하며 같은 제목의 여러 항목은 서로 다른 ID로 구분합니다. 완료한 항목도 목록에 남아 완료 표시를 확인하거나 삭제할 수 있습니다. 빈 목록에는 안내를 표시합니다.
-
-과제 마감은 **2026-10-11 일요일 23:59 KST**입니다.
-
-## 3. 개발 환경과 일반 명령
-
-확인한 환경은 Flutter 3.47.6 stable, Dart 3.13.5, flutter_riverpod 3.4.3, DevTools 2.60.0, Windows x64입니다. 패키지 버전은 `pubspec.lock`으로 고정합니다.
-
-Flutter SDK를 설치하고 `bin` 폴더를 PATH에 등록합니다. Windows 네이티브 빌드를 위해 Visual Studio 또는 Build Tools에 **Desktop development with C++** 작업과 Windows SDK를 설치합니다.
-
-PATH에 Flutter가 있는 일반 환경에서는 다음 명령을 사용합니다.
+### 1-1. 개발 환경 확인
 
 ```powershell
 flutter --version
 flutter doctor -v
+```
+
+flutter doctor에서 Windows 빌드 도구가 준비되었는지 확인합니다. 검증 환경은 Flutter 3.47.6, Dart 3.13.5, flutter_riverpod 3.4.3, DevTools 2.60.0, Windows x64입니다.
+
+### 1-2. 의존성 설치 후 앱 실행
+
+```powershell
 flutter pub get
-dart format lib test test_driver scripts
+flutter run -d windows
+```
+
+첫 번째 명령은 필요한 패키지를 설치하고, 두 번째 명령은 앱을 빌드하여 Windows 창으로 실행합니다. 제목 입력 후 추가 버튼 또는 Enter, 완료 체크박스, 휴지통 버튼을 사용합니다. 터미널에서 q를 누르면 종료됩니다.
+
+### 1-3. 실행 파일 빌드 및 실행
+
+```powershell
+flutter build windows --release
+.\build\windows\x64\runner\Release\today_todo.exe
+```
+
+첫 번째 명령은 release 실행 파일을 만들고, 두 번째 명령은 만들어진 앱을 실행합니다. Release 폴더의 DLL과 data도 함께 필요합니다. 제출 ZIP에는 의존성과 빌드 결과가 포함되지 않으므로 먼저 위 명령으로 빌드합니다.
+
+**데이터 보관:** 메모리에만 저장하므로 앱 종료·재시작 시 목록은 빈 상태로 돌아갑니다.
+
+<!-- page: portrait -->
+## 2. 어떻게 구현했는가 - 화면과 코드 구조
+
+### 파일별 역할
+
+| 파일 | 담당하는 부분 |
+| --- | --- |
+| lib/main.dart | ProviderScope로 상태 제공, MaterialApp과 시작 화면 설정 |
+| lib/models/todo.dart | 한 할 일의 데이터: ID, 제목, 완료 여부 |
+| lib/providers/todo_provider.dart | 전체 목록과 추가·삭제·완료 변경 로직 |
+| lib/screens/todo_screen.dart | 입력창, 추가 버튼, 전체 개수, 목록 배치 |
+| lib/widgets/todo_tile.dart | 한 줄의 제목, 체크박스, 삭제 버튼 |
+
+### 위젯 배치
+
+```text
+ProviderScope
+  TodayTodoApp (StatelessWidget)
+    MaterialApp
+      TodoScreen (ConsumerStatefulWidget)
+        Scaffold
+          AppBar
+          SafeArea > Center > ConstrainedBox > Padding
+            Column
+              Row: TextField + FilledButton.icon
+              Text: 전체 개수
+              Expanded > ListView.builder
+                TodoTile (StatelessWidget)
+                  ListTile: Checkbox + Text + IconButton
+```
+
+### 화면에서 보이는 요소와 실제 위젯
+
+| 화면 요소 | 위젯과 역할 |
+| --- | --- |
+| 오늘 할 일 제목 | AppBar: 화면의 상단 제목 |
+| 제목 입력창 | TextField: TextEditingController로 입력 읽기 |
+| 추가 버튼 | FilledButton.icon: _addTodo() 호출, Enter도 같은 처리 |
+| 전체 N개 | Text: todos.length 표시 |
+| 할 일 목록 | ListView.builder: 항목 수에 따라 TodoTile 생성 |
+| 한 할 일 | TodoTile의 ListTile: 체크박스·제목·삭제 버튼 배치 |
+| 완료·삭제 | Checkbox는 완료 반전, IconButton은 해당 ID 삭제 |
+
+입력창·목록은 Column으로 세로 배치하고 입력창·추가 버튼은 Row로 가로 배치했습니다. Expanded가 남은 공간을 목록에 배정합니다. 입력 controller와 FocusNode는 TodoScreen이 소유하고 dispose에서 정리합니다. 완료한 제목에는 취소선을 표시하며 빈 목록에는 안내 문구를 표시합니다.
+
+<!-- page: portrait -->
+## 3. 상태 자료구조와 변경 흐름
+
+### 한 항목은 Todo, 전체 목록은 List<Todo>
+
+| Todo 필드 | 자료형 | 의미 |
+| --- | --- | --- |
+| id | int | 항목을 구분하는 고유 번호 |
+| title | String | 입력한 할 일 제목 |
+| isCompleted | bool | 완료 여부, 처음에는 false |
+
+예를 들어 두 항목의 상태는 아래처럼 표현됩니다. 각 Todo의 필드는 final이며 완료 변경은 copyWith로 새 Todo를 만듭니다.
+
+```dart
+List<Todo> todos = [
+  Todo(id: 1, title: '강의 복습', isCompleted: true),
+  Todo(id: 2, title: '운동하기'),
+];
+```
+
+### 어떤 동작이 어떤 데이터를 바꾸는가
+
+| 동작 | 처리 | 화면 결과 |
+| --- | --- | --- |
+| 추가 | addTodo: trim 후 새 ID의 Todo를 목록 끝에 추가 | 입력창 초기화, 전체 개수 증가 |
+| 삭제 | deleteTodo(id): 해당 ID만 제외한 새 목록 생성 | 선택한 줄 제거, 전체 개수 감소 |
+| 완료 체크 | toggleTodo(id): isCompleted 반전 | 체크 상태·제목 취소선 변경 |
+
+공백뿐인 제목은 추가하지 않고 오류를 표시합니다. 같은 제목도 ID가 다르면 다른 항목입니다. ID는 정상 추가마다 증가하고 삭제 후 재사용하지 않습니다. 없는 ID의 삭제·완료 요청은 다른 항목에 영향을 주지 않습니다.
+
+### Riverpod으로 화면에 반영되는 흐름
+
+<!-- diagram: state -->
+
+화면 이벤트는 ref.read(todoProvider.notifier)로 메서드를 호출합니다. Notifier는 기존 목록을 수정하는 대신 **List<Todo>.unmodifiable로 만든 새 목록을 state에 대입**합니다. TodoScreen의 ref.watch(todoProvider)가 변경을 구독하여 목록을 다시 표시합니다.
+
+할 일 목록·완료 여부는 Riverpod 상태이고, 입력 중인 문자열·오류 문구·포커스는 화면의 임시 상태입니다. 저장 대기 단계가 없어 동기 Notifier를 사용합니다.
+
+<!-- page: portrait -->
+## 4. Bonus Points 구현 내용
+
+### Bonus 1. Riverpod 사용 - 10점 항목
+
+**기본 To Do 앱의 목록과 완료 상태를 Riverpod으로 관리했습니다.** 별도의 보너스용 앱이나 화면을 만들지 않고 리스트·추가·삭제 동작에 적용했습니다.
+
+```dart
+final todoProvider = NotifierProvider<TodoNotifier, List<Todo>>(
+  TodoNotifier.new,
+);
+```
+
+| 사용 위치 | 적용 내용 |
+| --- | --- |
+| main.dart | ProviderScope가 앱에 provider 사용 환경 제공 |
+| todo_provider.dart | TodoNotifier가 List<Todo>와 세 변경 메서드 관리 |
+| todo_screen.dart | ref.watch로 읽기, ref.read로 추가·삭제·완료 요청 |
+
+### Bonus 2. native 앱에서 DevTools 사용 - 10점 항목
+
+**Windows 네이티브 앱을 실행하고 DevTools의 Inspector·Timeline·Memory·Performance를 사용했습니다.** 브라우저는 분석 화면이며 실제 앱은 Windows 창으로 실행됩니다.
+
+<!-- diagram: connection -->
+
+Inspector용 debug 실행:
+
+```powershell
+flutter run -d windows
+```
+
+터미널에 출력된 Flutter DevTools 링크를 브라우저에서 엽니다. Inspector에서 위젯 트리와 선택 위젯의 레이아웃을 확인합니다.
+
+Performance·Timeline·Memory용 profile 실행:
+
+```powershell
+flutter run -d windows --profile
+```
+
+debug 실행을 q로 종료한 후 실행합니다. 이번 실행의 새 DevTools 링크로 연결합니다. Performance에서 프레임을 선택하고 Timeline Events에서 이벤트를 조회합니다. Memory에서 그래프와 GC 후 객체 수를 확인합니다. 실제 화면은 6절에 각각 포함했습니다.
+
+<!-- page: portrait -->
+## 5. 기본 기능 스크린샷
+
+### 5-1. 리스트
+
+강의 복습·운동하기·과제 정리의 세 항목을 표시합니다. 첫 항목을 완료 체크하여 체크박스와 제목 취소선도 확인했습니다.
+
+![리스트: 전체 3개와 완료 표시](docs/screenshots/01_list.png)
+
+**확인 결과:** ListView.builder가 목록을 표시하고 각 TodoTile에 제목·완료 체크·삭제 버튼이 나타납니다.
+
+<!-- page: landscape -->
+### 5-2. 추가
+
+입력창에 README 작성을 입력하고 추가 버튼을 누른 전후 화면입니다.
+
+![추가 전: 제목 입력, 전체 3개](docs/screenshots/02_add_input.png)
+![추가 후: 새 항목 생성, 전체 4개](docs/screenshots/03_add_result.png)
+
+**확인 결과:** 새 항목이 목록 끝에 생기고 전체 개수가 3개에서 4개로 증가했습니다. 정상 추가 후 입력창은 비워졌습니다.
+
+<!-- page: landscape -->
+### 5-3. 삭제
+
+운동하기 항목의 휴지통 버튼을 누른 전후 화면입니다.
+
+![삭제 전: 운동하기 포함, 전체 4개](docs/screenshots/04_delete_before.png)
+![삭제 후: 운동하기 제거, 전체 3개](docs/screenshots/05_delete_after.png)
+
+**확인 결과:** 선택한 항목만 제거되고 다른 항목과 완료 상태가 유지됐습니다. 전체 개수는 4개에서 3개로 감소했습니다.
+
+<!-- page: landscape -->
+## 6. DevTools 스크린샷
+
+### 6-1. Inspector - 위젯 구조 검사
+
+Windows debug 앱에 연결한 화면입니다. Show Implementation Widgets를 켜고 Column을 선택했습니다.
+
+![Inspector: 위젯 트리와 Column 속성](docs/screenshots/06_devtools_inspector.jpg)
+
+**관찰:** Column의 세로 배치, padding 16, 너비 648.0·높이 554.7과 자식 위젯 구조를 확인했습니다.
+
+<!-- page: landscape -->
+### 6-2. Timeline - 실제 동작 이벤트 검사
+
+Windows profile 앱의 **Performance > Timeline Events**입니다. Refresh timeline events 후 todo.add를 검색해 선택했습니다.
+
+![Timeline: todo.add 이벤트와 상세 정보](docs/screenshots/07_devtools_timeline.jpg)
+
+**관찰:** todo.add 검색 결과 20건, 선택 이벤트 Category Dart·Duration 116us. 추가·삭제·완료 처리에 Timeline.timeSync 표식을 넣었습니다.
+
+<!-- page: landscape -->
+### 6-3. Memory - 메모리와 객체 수 검사
+
+Windows profile 앱에서 추가 20회·삭제 10회·완료 변경 1회 후 GC와 Refresh를 실행했습니다.
+
+![Memory: 메모리 그래프와 GC 후 객체 수](docs/screenshots/08_devtools_memory.jpg)
+
+**관찰:** 남은 항목 10개와 Todo 10개·TodoTile 10개를 확인했습니다. All Classes 행의 Dart Heap은 10.6 MB이며 클래스 표의 기본 필터가 적용된 값입니다.
+
+<!-- page: landscape -->
+### 6-4. Performance - UI와 Raster 프레임 검사
+
+Windows profile 앱의 Flutter frames 차트에서 프레임 390을 선택한 화면입니다.
+
+![Performance: 프레임 차트와 Frame Analysis](docs/screenshots/09_devtools_performance.jpg)
+
+**관찰:** UI 0.3ms·Raster 8.0ms·Paint 0.1ms, Raster Jank Detected 표시. 한 프레임의 결과이며 전체 평균 성능을 의미하지 않습니다.
+
+<!-- page: portrait -->
+## 7. 검증 결과와 참고
+
+### 기능 및 빌드 검증
+
+| 검사 | 결과 |
+| --- | --- |
+| flutter pub get | 의존성 설치 성공 |
+| flutter analyze | No issues found! |
+| flutter test | 상태 6개·화면 8개, 총 14개 테스트 통과 |
+| flutter build windows --release | 일반 lib/main.dart의 Windows 빌드 통과 |
+| 기본 기능 | 실제 UI에서 목록 3개 > 추가 후 4개 > 삭제 후 3개 |
+| 일반 release 실행 | 키보드·Enter 추가, 종료 후 재실행 시 빈 목록 확인 |
+| 제출 자료 | 리스트·추가·삭제 5장, DevTools 4장: 실제 이미지 9장 |
+
+```powershell
 flutter analyze
 flutter test --reporter expanded
-flutter run -d windows
-flutter run -d windows --profile
-flutter build windows
 ```
 
-debug와 profile 실행은 하나씩 종료한 뒤 다음 명령을 실행합니다. `flutter pub get`은 의존성을 설치하며, SDK·패키지 소스와 생성 캐시는 코드 제출물에서 제외합니다.
+새 소스 복사본에서 테스트와 빌드를 검증했고 제출 ZIP의 앱·테스트·Windows 파일이 검증 소스와 일치하는지 확인했습니다. 근거는 docs/evidence의 simple_final_validation.json, simple_feature_capture.json, simple_release_smoke.json, profile_workload.json, devtools_observations.json입니다.
 
-## 4. 코드 구조와 위젯
+### DevTools 관찰 조건
 
-| 파일 | 역할 |
-| --- | --- |
-| lib/main.dart | ProviderScope 안에서 MaterialApp 시작 |
-| lib/models/todo.dart | Todo의 ID·제목·완료 상태 정의 |
-| lib/providers/todo_provider.dart | 목록 상태 및 추가·삭제·완료 변경 |
-| lib/screens/todo_screen.dart | 입력 폼·목록·빈 목록 안내 |
-| lib/widgets/todo_tile.dart | 개별 항목의 체크박스·제목·삭제 버튼 |
-| test/ | 상태 변경과 화면 동작 검사 |
-| test_driver/, scripts/ | 네이티브 촬영·검증·실행·PDF·제출 도구 |
+스크린샷 촬영에는 실제 main.dart를 호출하는 test_driver 진입점과 FlutterDriver 자동 조작을 사용했습니다. 검증용 warm-up 프레임 호출도 포함되므로 차트의 FPS를 일반 사용의 평균 성능으로 해석하지 않습니다. 짧은 GC 관찰만으로 메모리 누수 유무를 단정하지 않습니다. 일반 실행·분석은 1절과 4절의 표준 Flutter 명령으로 진행합니다.
 
-화면은 `ConsumerStatefulWidget`으로 구현하여 입력창의 `TextEditingController`와 `FocusNode`를 소유하고 `dispose`에서 정리합니다. `Scaffold`·`AppBar` 아래에 `TextField`와 `FilledButton.icon`, 전체 개수, `Expanded` 안의 `ListView.builder`를 둡니다. `TodoTile`은 `ListTile`의 제목·`Checkbox`·삭제 `IconButton`으로 구성하며 완료 제목에는 취소선을 표시합니다.
-
-빈 제목은 입력창의 `할 일을 입력하세요.` 오류로 안내합니다. 새 입력 시 오류를 해제하고 정상 추가하면 입력창을 비운 뒤 포커스를 유지합니다. Enter도 같은 추가 처리를 호출합니다.
-
-`ref.watch(todoProvider)`로 현재 목록을 읽어 상태 변경 시 화면을 다시 구성합니다. 버튼 동작은 `ref.read(todoProvider.notifier)`로 변경 메서드를 호출합니다. 제목 입력은 화면의 임시 상태이고 할 일 목록은 Riverpod 상태입니다.
-
-## 5. 상태 자료구조와 변경 흐름
-
-`Todo`는 `int id`, `String title`, `bool isCompleted`를 가진 불변 모델입니다. `copyWith({bool? isCompleted})`로 ID·제목을 유지한 새 객체를 만듭니다. Riverpod 상태는 `List<Todo>`이며 `NotifierProvider<TodoNotifier, List<Todo>>`를 사용합니다.
-
-| 메서드 | 동작 |
-| --- | --- |
-| addTodo(String title) → bool | trim한 제목이 비면 false, 정상 추가하면 true |
-| deleteTodo(int id) → void | 해당 ID 항목만 제외한 새 목록으로 교체 |
-| toggleTodo(int id) → void | 해당 ID의 완료 상태를 바꾼 새 Todo·목록으로 교체 |
-
-기존 목록을 직접 수정하지 않고 `List<Todo>.unmodifiable`의 새 목록을 `state`에 대입합니다. 화면은 변경을 구독하므로 결과가 바로 반영됩니다. ID는 1부터 시작하고 정상 추가마다 증가하며 삭제 후에도 실행 중 재사용하지 않습니다. 같은 제목도 ID가 다르면 별개 항목이고, 없는 ID의 삭제·완료 변경은 목록을 바꾸지 않습니다.
-
-서버나 파일 저장을 기다리는 비동기 단계가 없으므로 동기 `Notifier`를 사용합니다. 앱 재시작 또는 새 `ProviderScope`에서는 빈 목록과 ID 1부터 시작합니다.
-
-## 6. 네이티브 DevTools와 촬영
-
-DevTools는 Flutter SDK에 포함되어 별도 설치가 필요하지 않습니다. 앱은 **Windows native 프로세스**로 실행하고 분석 도구 화면은 브라우저에서 엽니다. 연결 화면의 앱 종류와 실행 모드를 확인합니다.
+DevTools는 Flutter SDK에 포함되어 별도 설치가 필요하지 않습니다. Flutter가 출력한 연결 링크를 사용하면 됩니다. 서버를 따로 열어야 하는 경우에만 다른 터미널에서 다음 명령을 사용합니다.
 
 ```powershell
-flutter run -d windows
+dart devtools
 ```
 
-Inspector는 debug 앱의 터미널에 출력된 DevTools 링크로 연결합니다. 위젯 트리를 펼쳐 속성·부모 구조를 확인합니다. 프레임워크 위젯도 보려면 `Show Implementation Widgets`를 켭니다. 캡처에서는 Column을 선택해 vertical 방향, start 정렬, stretch 교차 정렬과 padding 16을 확인했습니다.
+서버의 Connect 화면에는 실행 중인 앱의 Dart VM Service URL을 입력합니다. 실행할 때마다 URL이 바뀌므로 터미널의 현재 주소를 사용합니다.
 
-debug 실행을 `q`로 종료한 뒤 profile 앱을 실행하고 이번 실행의 DevTools 링크에 연결합니다.
+### 문서 생성 및 코드 패키징
 
-```powershell
-flutter run -d windows --profile
-```
-
-Timeline·Memory·Performance는 **Windows profile 앱**에서 확인합니다. 해당 실행의 DevTools에 연결하여 항목 추가·체크·삭제·스크롤을 수행합니다. DevTools 2.60.0의 **Performance → Timeline Events**에서 `todo.add/delete/toggle` 표식과 선택 구간을 확인하고, 프레임 상세에서 UI·raster 시간을 확인합니다. Memory에서는 그래프와 클래스 수를 관찰하며 필요하면 GC·Refresh 전후를 비교합니다.
-
-실제 profile 실행에서 추가 20회·삭제 10회·완료 변경 1회 후 10개가 남았습니다. Timeline Events의 `Refresh timeline events`로 기록을 가져온 뒤 `todo.add`를 검색해 다음 결과를 선택했습니다. 검색 결과는 20건이고 선택 이벤트는 Category Dart, Duration **116us**였습니다.
-
-Performance의 프레임 390을 선택했을 때 **UI 0.3ms / Raster 8.0ms / Paint 0.1ms**, `Raster Jank Detected`가 표시됐습니다. Memory에서 GC와 Refresh 후 **Todo 10개 / TodoTile 10개**와 All Classes 행의 Dart Heap **10.6 MB**를 확인했습니다. 클래스 표는 화면의 기본 필터가 적용된 상태이고 그래프의 RSS와 Dart heap은 다른 지표입니다.
-
-촬영용 `test_driver`는 실제 main.dart를 호출하면서 FlutterDriver 검증 확장과 warm-up 프레임 호출을 포함합니다. 따라서 차트의 평균 FPS를 일반 사용의 평균 성능으로 주장하지 않습니다. 한 프레임 시간은 전체 평균이 아니며 메모리 값에는 검증 도구 비용도 포함됩니다. 짧은 GC 관찰만으로 누수가 없다고 단정하지 않습니다. 일반 관찰은 위의 기본 profile 명령으로 재현합니다.
-
-DevTools 서버가 따로 필요하면 다른 터미널에서 실행합니다.
+완성된 Readme.pdf는 실제 이미지 9장을 내장합니다. 제출 ZIP에는 앱 소스와 필요한 플랫폼 설정·의존성 선언·문서를 포함하고 SDK·의존성 구현·캐시·빌드 결과는 제외합니다. 문서를 다시 생성하려면 Windows 맑은 고딕과 Consolas, Python 및 reportlab·Pillow가 필요합니다.
 
 ```powershell
-dart devtools --port 9100 --no-launch-browser
-```
-
-출력된 주소에 접속하여 현재 앱의 VM Service URL을 연결합니다. **VM 주소와 토큰은 실행마다 달라집니다.** 이전 실행의 주소를 재사용하지 않습니다. 참고: [DevTools CLI 실행](https://docs.flutter.dev/tools/devtools/cli), [Performance 사용](https://docs.flutter.dev/tools/devtools/performance).
-
-동일한 간단 버전 `1.1.0+3`의 기능 화면 5장과 DevTools 화면 4장을 촬영했습니다. Readme.pdf 부록에 9장 모두 포함했습니다.
-
-| 파일: docs/screenshots/ | 화면 |
-| --- | --- |
-| 01_list.png | 제목·완료 체크가 보이는 목록 |
-| 02_add_input.png | 새 제목 입력 |
-| 03_add_result.png | 추가된 항목과 변경된 목록 |
-| 04_delete_before.png | 삭제 대상과 삭제 전 목록 |
-| 05_delete_after.png | 해당 항목만 삭제된 목록 |
-| 06_devtools_inspector.jpg | debug 위젯 트리·선택 속성 |
-| 07_devtools_timeline.jpg | profile의 Timeline Events |
-| 08_devtools_memory.jpg | profile 메모리 그래프·클래스 |
-| 09_devtools_performance.jpg | profile 프레임 차트·UI/raster |
-
-![목록과 완료 표시](docs/screenshots/01_list.png)
-![DevTools Timeline](docs/screenshots/07_devtools_timeline.jpg)
-
-## 7. 검증 상태
-
-간단 버전 `1.1.0+3`의 정적 분석은 `No issues found!`였으며 새 소스 복사본에서 의존성 설치, **14개 테스트(상태 6개·화면 8개)**와 일반 `lib/main.dart`의 **Windows release 빌드**를 통과했습니다. OneDrive의 기존 테스트 캐시 삭제 오류가 있어 새 복사본에서 검증했습니다. 실제 앱 소스 해시를 기록해 동일 소스인지 확인했습니다.
-
-debug 앱에서 목록·추가·삭제·완료 체크를 확인했으며 항목 수는 3 → 4 → 3으로 변경됐습니다. 일반 release 실행 파일에서도 키보드 입력·Enter 추가 0 → 1개, 종료 후 재실행 시 0개 초기화를 확인했습니다. Windows profile 앱을 DevTools에 연결해 Timeline·Memory·Performance를 검사했습니다.
-
-근거는 `docs/evidence/simple_final_validation.json`, `simple_final_test.txt`, `simple_feature_capture.json`, `simple_release_smoke.json`, `profile_workload.json`, `devtools_observations.json`입니다. VM 타임라인은 순환 버퍼이므로 이후의 읽기 결과에서는 일부 초기 이벤트가 빠질 수 있습니다.
-
-## 8. PDF와 제출 코드
-
-```powershell
+python -m pip install reportlab Pillow
 powershell -ExecutionPolicy Bypass -File .\scripts\update_readme.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\package_submission.ps1
 ```
 
-PDF는 `output/pdf/Readme.pdf`에 생성됩니다. 생성에는 Windows의 맑은 고딕, Python과 reportlab·Pillow가 필요합니다. PATH에 Python이 없다면 update_readme.ps1의 `-PythonPath`로 실행 파일을 지정합니다. 직접 생성할 때에는 `python -m pip install reportlab Pillow` 후 `python scripts/build_readme_pdf.py`를 실행합니다. GitHub 루트에도 완성된 `Readme.pdf`를 제공합니다.
-
-제출 ZIP은 `submission/today_todo_날짜_시각.zip`에 생성되고 내부 최상위에 `Readme.pdf`가 있습니다. 자체 `lib/`, `test/`, `test_driver/`, `scripts/`, 문서·실제 캡처, `pubspec.yaml`·`pubspec.lock`·분석 설정·필수 플랫폼 소스를 포함합니다. `.tooling/`, SDK·다운로드 의존성·`build/`·`.dart_tool/`·ephemeral·Git·개인 IDE 설정은 제외합니다. Android 설정은 프로젝트 기본 골격이며 실제 빌드·실행 검증 대상은 Windows입니다. PDF의 한글·명령·표·스크린샷과 ZIP 구성을 검토했습니다. 과제 사이트 업로드는 별도로 진행해야 합니다.
+참고: [Windows 앱 빌드](https://docs.flutter.dev/platform-integration/windows/building), [DevTools 연결](https://docs.flutter.dev/tools/devtools/cli), [Performance 분석](https://docs.flutter.dev/tools/devtools/performance).

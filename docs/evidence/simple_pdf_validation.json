@@ -1,8 +1,38 @@
 {
   "status": "structure-passed",
-  "pdfPages": 14,
+  "pdfPages": 12,
   "embeddedScreenshots": 9,
-  "pdfSha256": "f9df51b9946c0ad3b7a3e9cf0ef5333f88a2e88aedc8013243af367e0be47741",
-  "renderedPages": 14,
+  "pdfSha256": "3b70b2cf05ad1edc892d8a8766e889ef0796e5f1ce2ce34e6bfbdc4a5750db6c",
+  "renderedPages": 12,
+  "sectionScreenshots": {
+    "5-1. \ub9ac\uc2a4\ud2b8": {
+      "page": 5,
+      "images": 1
+    },
+    "5-2. \ucd94\uac00": {
+      "page": 6,
+      "images": 2
+    },
+    "5-3. \uc0ad\uc81c": {
+      "page": 7,
+      "images": 2
+    },
+    "6-1. Inspector": {
+      "page": 8,
+      "images": 1
+    },
+    "6-2. Timeline": {
+      "page": 9,
+      "images": 1
+    },
+    "6-3. Memory": {
+      "page": 10,
+      "images": 1
+    },
+    "6-4. Performance": {
+      "page": 11,
+      "images": 1
+    }
+  },
   "textAndBoundsChecked": true
 }

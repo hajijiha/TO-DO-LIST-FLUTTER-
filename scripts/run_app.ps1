@@ -9,7 +9,7 @@ if (Test-Path -LiteralPath $localFlutter) {
 } else {
     $resolvedFlutter = Get-Command flutter -ErrorAction SilentlyContinue
     if (-not $resolvedFlutter) {
-        throw 'Flutter SDK is required. See README section 3 for installation and PATH setup.'
+        throw 'Flutter SDK is required. See README section 1 for installation and PATH setup.'
     }
     $flutterCommand = $resolvedFlutter.Source
 }

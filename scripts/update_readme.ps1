@@ -7,7 +7,7 @@ if ($PythonPath) {
     $pythonCommand = $PythonPath
 } else {
     $resolvedPython = Get-Command python -ErrorAction SilentlyContinue
-    if (-not $resolvedPython) { throw 'Install Python with reportlab and Pillow first. See README section 8.' }
+    if (-not $resolvedPython) { throw 'Install Python with reportlab and Pillow first. See README section 7.' }
     $pythonCommand = $resolvedPython.Source
 }
 & $pythonCommand -c 'import reportlab, PIL'
