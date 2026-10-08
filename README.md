@@ -210,7 +210,7 @@ Windows profile 앱의 **Performance > Timeline Events**입니다. Refresh timel
 
 ![Timeline: todo.add 이벤트와 상세 정보](docs/screenshots/07_devtools_timeline.jpg)
 
-**관찰:** todo.add 검색 결과 20건, 선택 이벤트 Category Dart·Duration 116us. 추가·삭제·완료 처리에 Timeline.timeSync 표식을 넣었습니다.
+**관찰:** todo.add 검색 결과 3건, 선택 이벤트 Category Dart·Duration 318us. 추가·삭제·완료 처리에 Timeline.timeSync 표식을 넣었습니다.
 
 <!-- page: landscape -->
 ### 6-3. Memory - 메모리와 객체 수 검사

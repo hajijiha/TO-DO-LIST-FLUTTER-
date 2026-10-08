@@ -20,10 +20,20 @@
     "mode": "profile",
     "screen": "Performance > Timeline Events",
     "search": "todo.add",
-    "searchResultCount": 20,
+    "searchResultCount": 3,
     "selectedEvent": "todo.add",
     "category": "Dart",
-    "durationMicros": 116
+    "durationMicros": 318,
+    "thread": "io.flutter.ui 40592",
+    "uiThreadPinned": true,
+    "frameChartShown": false,
+    "recapturedAtUtc": "2026-10-08T16:09:50.378552+00:00",
+    "pdfDetailRegion": {
+      "x": 16,
+      "y": 435,
+      "width": 684,
+      "height": 220
+    }
   },
   "memory": {
     "mode": "profile",
@@ -93,9 +103,9 @@
     {
       "file": "docs/screenshots/07_devtools_timeline.jpg",
       "width": 1440,
-      "height": 900,
-      "sha256": "a982881b7c6fb94cd54bf72342da6d1c331c2735fce58fa082fce1f536752ba9",
-      "capturedAtUtc": "2026-10-08T14:54:11.828244+00:00"
+      "height": 680,
+      "sha256": "4c62d70a309648e8f4d38ef4c8241e31f8c335cecfb2e0d77186a29a8dc64d15",
+      "capturedAtUtc": "2026-10-08T16:07:56.824633+00:00"
     },
     {
       "file": "docs/screenshots/08_devtools_memory.jpg",

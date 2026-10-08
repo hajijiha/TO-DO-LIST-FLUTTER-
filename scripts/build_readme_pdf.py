@@ -113,6 +113,54 @@ class FlowDiagram(Flowable):
         canvas.restoreState()
 
 
+class TimelineFigure(Flowable):
+    """Place the event overview and enlarged details from the same capture."""
+
+    def __init__(self, path: Path):
+        super().__init__()
+        self.path = str(path)
+        with PILImage.open(path) as source:
+            self.source_width, self.source_height = source.size
+        self.overview = (0, 0, self.source_width, 340)
+        self.details = (16, 435, 684, 220)
+
+    def wrap(self, availWidth, availHeight):
+        self.width = availWidth
+        self.overview_height = self.width * self.overview[3] / self.overview[2]
+        self.detail_width = min(580, self.width)
+        self.detail_height = self.detail_width * self.details[3] / self.details[2]
+        self.height = self.overview_height + self.detail_height + 44
+        return self.width, self.height
+
+    def draw_region(self, region, x, y, width):
+        source_x, source_y, source_width, source_height = region
+        scale = width / source_width
+        height = source_height * scale
+        canvas = self.canv
+        canvas.saveState()
+        bounds = canvas.beginPath()
+        bounds.rect(x, y, width, height)
+        canvas.clipPath(bounds, stroke=0, fill=0)
+        canvas.drawImage(self.path,
+                         x - source_x * scale,
+                         y - (self.source_height - source_y - source_height) * scale,
+                         width=self.source_width * scale,
+                         height=self.source_height * scale)
+        canvas.restoreState()
+
+    def draw(self):
+        canvas = self.canv
+        canvas.saveState()
+        canvas.setFillColor(MUTED)
+        canvas.setFont('Korean', 8.8)
+        canvas.drawString(0, self.height - 10, 'Timeline Events - todo.add 선택')
+        self.draw_region(self.overview, 0,
+                         self.height - 18 - self.overview_height, self.width)
+        canvas.drawString(0, self.detail_height + 9, '선택한 이벤트의 상세 정보 (확대)')
+        self.draw_region(self.details, 0, 0, self.detail_width)
+        canvas.restoreState()
+
+
 def embedded_images(entries, layout):
     page_size = A4 if layout == 'Portrait' else landscape(A4)
     available = page_size[0] - 92
@@ -125,6 +173,8 @@ def embedded_images(entries, layout):
         path.relative_to((ROOT / 'docs' / 'screenshots').resolve())
         if not path.is_file():
             raise FileNotFoundError(f'Required screenshot is missing: {path}')
+        if not paired and path.name == '07_devtools_timeline.jpg':
+            return [TimelineFigure(path), Spacer(1, 8)]
         with PILImage.open(path) as source_image:
             width, height = source_image.size
         scale = min(image_width / width, image_height / height)
