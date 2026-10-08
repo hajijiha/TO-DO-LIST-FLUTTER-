@@ -1,0 +1,6 @@
+VMServiceFlutterDriver: Connecting to Flutter application at [VM URL omitted]
+VMServiceFlutterDriver: Isolate found with number: 6588231970018643
+VMServiceFlutterDriver: Isolate 6588231970018643 is runnable.
+VMServiceFlutterDriver: Isolate is not paused. Assuming application is ready.
+VMServiceFlutterDriver: Connected to Flutter application.
+Verified list/add/delete/completion; captured 5 native screens.

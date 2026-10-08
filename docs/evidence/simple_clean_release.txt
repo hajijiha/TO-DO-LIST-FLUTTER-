@@ -1,0 +1,2 @@
+Building Windows application...                                   169.7s
+√ Built build\windows\x64\runner\Release\today_todo.exe

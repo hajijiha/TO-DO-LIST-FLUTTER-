@@ -21,9 +21,9 @@ foreach ($sourceFolder in $sourceFolders) {
     Get-ChildItem -LiteralPath $folderPath -File -Recurse -Force | ForEach-Object {
         $relativePath = $_.FullName.Substring($projectRoot.Length + 1)
         if ($relativePath -match '^docs\\evidence\\' -and
-            $_.Name -notmatch '^(v2_|feature_capture_v2|profile_workload|timeline_check|devtools_observations|persistence_|validation_v2|package_check_v2|release_launch_v2)') { return }
+            $_.Name -notmatch '^(simple_|profile_workload|timeline_check|devtools_observations)') { return }
         if ($relativePath -match '(^|\\)(ephemeral|\.gradle|\.kotlin|\.dart_tool|build|__pycache__)(\\|$)' -or
-            $relativePath -match '(^|\\)(local\.properties|gradle-wrapper\.jar|gradlew|gradlew\.bat)$' -or
+            $relativePath -match '(^|\\)(local\.properties|gradle-wrapper\.jar|gradlew|gradlew\.bat|GeneratedPluginRegistrant\.java)$' -or
             $relativePath -match '\.(iml|pyc)$') { return }
         $targetPath = Join-Path $stageRoot $relativePath
         New-Item -ItemType Directory -Force -Path (Split-Path -Parent $targetPath) | Out-Null

@@ -3,7 +3,8 @@ $ErrorActionPreference = 'Stop'
 $taskProjectRoot = [IO.Path]::GetFullPath($ProjectRoot)
 $taskManifestPath = Join-Path $taskProjectRoot '.flutter-plugins-dependencies'
 if (-not (Test-Path -LiteralPath $taskManifestPath)) {
-    throw 'Run flutter pub get before preparing the Windows plugin folders.'
+    Write-Output 'No native plugin connections are required.'
+    return
 }
 $taskManifest = Get-Content -LiteralPath $taskManifestPath -Raw | ConvertFrom-Json
 $taskLinkRoot = Join-Path $taskProjectRoot 'windows\flutter\ephemeral\.plugin_symlinks'

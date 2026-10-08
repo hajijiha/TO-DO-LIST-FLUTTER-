@@ -1,2 +1,0 @@
-Read-only timeline inspection completed: 32398 events; todo.add=12, todo.delete=20.
-Recorded streams: [Dart, Embedder, GC]

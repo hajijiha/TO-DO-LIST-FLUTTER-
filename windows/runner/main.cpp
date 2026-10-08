@@ -26,8 +26,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
 
   FlutterWindow window(project);
   Win32Window::Point origin(10, 10);
-  Win32Window::Size size(1180, 760);
-  if (!window.Create(L"Today Todo - Daily Planner", origin, size)) {
+  Win32Window::Size size(760, 680);
+  if (!window.Create(L"Today Todo - Simple", origin, size)) {
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);

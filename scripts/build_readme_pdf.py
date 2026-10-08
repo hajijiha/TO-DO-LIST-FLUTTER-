@@ -72,7 +72,7 @@ def footer(canvas, document):
     canvas.line(40, 38, width - 40, 38)
     canvas.setFont('Korean', 8)
     canvas.setFillColor(MUTED)
-    canvas.drawString(40, 24, '오늘 할 일 · 하루 기록 | Flutter + Riverpod | v2.0')
+    canvas.drawString(40, 24, '오늘 할 일 | Flutter + Riverpod | v1.1')
     canvas.drawRightString(width - 40, 24, str(document.page))
     canvas.restoreState()
 
@@ -158,24 +158,15 @@ def markdown_flow(source):
 
 def screenshot_flow():
     captions = [
-        ('01_list.png', '리스트', 'Windows 네이티브 앱에서 할 일 3개의 장소, 예상 시간, 미완료 상태를 표시한 화면.'),
-        ('02_add_input.png', '추가 전 입력', '새 제목 "DevTools 화면 캡처", 장소 "컴퓨터실", 예상 시간 45분을 입력한 화면.'),
-        ('03_add_result.png', '추가 결과', 'DevTools 화면 캡처 항목이 추가되어 전체 목록이 4개가 된 화면.'),
-        ('04_delete_before.png', '삭제 전', '삭제 대상 "Riverpod 구조 정리"가 포함된 4개 항목.'),
-        ('05_delete_after.png', '삭제 결과', '"Riverpod 구조 정리"가 삭제되고 다른 3개 항목이 남은 화면. 삭제 후 기준 작업량은 유지된다.'),
+        ('01_list.png', '리스트', 'Windows 네이티브 앱의 할 일 3개 목록. 강의 복습을 완료 체크하여 취소선과 체크 상태를 확인한다.'),
+        ('02_add_input.png', '추가 전 입력', '새 제목 "README 작성"을 입력한 화면.'),
+        ('03_add_result.png', '추가 결과', 'README 작성 항목이 추가되어 전체 목록이 4개가 된 화면.'),
+        ('04_delete_before.png', '삭제 전', '삭제 대상 "운동하기"가 포함된 4개 항목.'),
+        ('05_delete_after.png', '삭제 결과', '운동하기가 삭제되고 다른 3개 항목이 남은 화면.'),
         ('06_devtools_inspector.png', 'DevTools Inspector', 'debug 네이티브 앱의 위젯 트리와 속성 검사.'),
         ('07_devtools_timeline.png', 'DevTools Timeline', 'Windows profile 앱의 실제 프레임 타임라인과 이벤트 상세 화면.'),
         ('08_devtools_memory.png', 'DevTools Memory', 'Windows profile 앱의 실제 메모리 사용량과 객체 할당 관찰 화면.'),
         ('09_devtools_performance.png', 'DevTools Performance', 'Windows profile 앱의 프레임 그래프와 선택 프레임 분석 화면.'),
-        ('10_rating_dialog.png', '완료와 수행 평점', '완료 체크 후 0~10점 수행 점수를 입력하는 화면. 0점도 완료 상태로 저장된다.'),
-        ('11_daily_score.png', '하루 점수와 작업량', '완료 평점 평균 8.5점과 개수·시간을 반영한 하루 점수 3.7점을 구분해 표시한다.'),
-        ('12_calendar_history.png', '달력 기록', '달력에서 지난 날짜를 선택해 완료된 할 일과 날짜별 점수를 조회한다. 촬영용 과거 기록은 예시 자료다.'),
-        ('13_edit_dialog.png', '할 일 수정', '제목, 장소, 예상 시간, 날짜를 수정하는 화면.'),
-        ('14_goal_settings.png', '하루 목표 설정', '기본 개수·시간 목표를 설정한다. 새 기록일에 적용하고 이미 기록한 날짜의 기준은 유지한다.'),
-        ('15_place_catalog.png', '입력한 장소 재사용', '공부 카테고리에서 사용자가 입력했던 도서관을 자동완성 후보로 표시한다.'),
-        ('16_place_stats.png', '카테고리별 장소 기록', '장소별 8점 이상 완료 비율, 평균 평점, 표본 수와 완료 예상시간을 표시한다. 미래 계획은 제외한다.'),
-        ('17_day_reflection.png', '직접 쓰는 하루 피드백', '잘한 점, 미흡했던 점, 다음에 개선할 점을 직접 작성하고 날짜별로 저장한다.'),
-        ('18_separate_lists.png', '해야 할 일과 실제로 한 일', '미완료와 완료 항목을 별도 목록으로 표시한다. 완료 평점을 저장하면 실제로 한 일 목록으로 이동한다.'),
     ]
     result = []
     for filename, title, caption in captions:
