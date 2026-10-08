@@ -41,7 +41,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\run_app.ps1 -Build
 
 공백만 있는 제목은 추가하지 않습니다. 제목 앞뒤 공백을 정리하며 같은 제목의 여러 항목은 서로 다른 ID로 구분합니다. 완료한 항목도 목록에 남아 완료 표시를 확인하거나 삭제할 수 있습니다. 빈 목록에는 안내를 표시합니다.
 
-날짜·점수·장소·회고·통계·영구 저장 기능은 이 간단 버전에 포함하지 않습니다. 과제 마감은 **2026-10-11 일요일 23:59 KST**입니다.
+과제 마감은 **2026-10-11 일요일 23:59 KST**입니다.
 
 ## 3. 개발 환경과 일반 명령
 
@@ -154,23 +154,7 @@ debug 앱에서 목록·추가·삭제·완료 체크를 확인했으며 항목 
 
 근거는 `docs/evidence/simple_final_validation.json`, `simple_final_test.txt`, `simple_feature_capture.json`, `simple_release_smoke.json`, `profile_workload.json`, `devtools_observations.json`입니다. VM 타임라인은 순환 버퍼이므로 이후의 읽기 결과에서는 일부 초기 이벤트가 빠질 수 있습니다.
 
-## 8. 보관한 전체 버전과 전환
-
-GitHub의 `main`과 `simple`은 목록·추가·삭제·완료 체크를 제공하는 간단 버전입니다.
-
-전체 기능 버전은 `advanced`의 커밋 `b11b5e9`에 보관합니다. 장소·점수·달력·회고·저장 기능이 있는 버전으로 전환할 수 있습니다. 새 clone의 기본 브랜치에서 다음과 같이 선택합니다.
-
-```powershell
-git status
-# 확장 기능 버전
-git switch advanced
-# 기본 버전
-git switch simple
-```
-
-원하는 브랜치 하나를 선택합니다. 편집한 내용은 commit하거나 stash한 뒤 전환합니다. 전환 후에는 해당 소스로 `scripts/run_app.ps1`을 실행해 다시 빌드합니다. 이미 생성된 실행 파일은 브랜치를 바꿔도 자동으로 바뀌지 않습니다.
-
-## 9. PDF와 제출 코드
+## 8. PDF와 제출 코드
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\update_readme.ps1
