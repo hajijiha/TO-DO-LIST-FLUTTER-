@@ -1,4 +1,4 @@
-# 간단 버전 상태 API
+# 상태 API
 
 ## 모델과 provider
 
@@ -36,8 +36,8 @@ void toggleTodo(int id);
 
 입력이 성공할 때만 TextEditingController를 clear한다. 버튼과 TextField의 onSubmitted가 같은 추가 처리를 호출한다. 완료 체크박스는 toggleTodo, 삭제 버튼은 deleteTodo에 ID를 전달한다.
 
-모든 API는 동기다. Future/await, AsyncValue, 저장소 및 JSON 계층을 사용하지 않는다. 파일·서버·SharedPreferences에 기록하지 않으며 앱 종료·재시작 또는 새 ProviderScope에서는 빈 목록과 ID 1부터 시작한다.
+모든 API는 동기다. 상태는 메모리에만 저장하며 앱 재시작 또는 새 ProviderScope에서는 빈 목록과 ID 1부터 시작한다.
 
 ## 검증 범위
 
-빈 입력/trim·중복 제목/ID·선택 삭제/마지막 삭제·완료 취소·기존 목록 보존을 상태 및 화면 테스트로 확인했다. 상태 6개·화면 8개, 총 14개 테스트와 정적 분석이 통과했다. Windows release 빌드 결과는 `docs/evidence/simple_final_validation.json`, 실제 종료·재실행 초기화 확인은 `simple_release_smoke.json`에 있다.
+검사 범위와 실행 로그는 [검증 기록](verification.md)에 있다.
